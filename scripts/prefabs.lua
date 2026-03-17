@@ -1,0 +1,5 @@
+
+
+PrefabFiles = {
+		"trinkets_gnomes",
+}

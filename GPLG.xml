@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Atlas>
+    <Texture filename="GPLG.tex"/>
+    <Elements>
+        <Element name="GPLG.tex" u1="0.000976563" u2="0.999023" v1="0.000976563" v2="0.999023"/>
+    </Elements>
+    <StraightAlpha>false</StraightAlpha>
+</Atlas>
+
