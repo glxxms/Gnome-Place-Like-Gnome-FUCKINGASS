@@ -1,6 +1,10 @@
 local assets =
 {
     Asset("ANIM", "anim/trinkets_gnomes.zip"),
+
+    Asset("IMAGE", "images/GPLG_inventoryimages.tex"),
+    Asset("ATLAS", "images/GPLG_inventoryimages.xml"),
+    Asset("ATLAS_BUILD", "images/GPLG_inventoryimages.xml", 256),
 }
 
 local GNOMES =
@@ -89,8 +93,9 @@ local function MakeGnome(name)
         inst:AddComponent("inspectable")
 
         inst:AddComponent("inventoryitem")
-        inst.components.inventoryitem.imagename = name
-        inst.components.inventoryitem.atlasname = "images/GPLG_inventoryimages.xml"
+        -- Don't really need to specify those in here.
+        -- inst.components.inventoryitem.imagename = name
+        -- inst.components.inventoryitem.atlasname = "images/GPLG_inventoryimages.xml"
 
         inst:AddComponent("tradable")
 

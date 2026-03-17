@@ -1,11 +1,11 @@
-local GLOBAL = GLOBAL
-local SpawnPrefab = GLOBAL.SpawnPrefab
-local TheWorld = GLOBAL.TheWorld
+local _G            = GLOBAL
+local require       = _G.require
+local SpawnPrefab   = _G.SpawnPrefab
 
 --------------------------------------------------
 
 local function IsMasterSim()
-    return TheWorld ~= nil and TheWorld.ismastersim
+    return _G.TheWorld ~= nil and _G.TheWorld.ismastersim
 end
 
 local function DropGnome(inst, gnome, chance)
@@ -26,29 +26,38 @@ end
 --------------------------------------------------
 
 AddPrefabPostInit("deerclops", function(inst)
-    if not IsMasterSim() then return end
-    inst:ListenForEvent("death", function(inst)
-        DropGnome(inst, "ice_gnome", .20)
-        DropGnome(inst, "ice_gnomette", .08)
-    end)
+    if not _G.TheWorld.ismastersim then
+        return inst
+    end
+
+    if inst.components.lootdropper ~= nil then
+        inst.components.lootdropper:AddChanceLoot("ice_gnome", 0.20)
+        inst.components.lootdropper:AddChanceLoot("ice_gnomette", 0.08)
+    end
 end)
 
 --------------------------------------------------
 
 AddPrefabPostInit("bearger", function(inst)
-    if not IsMasterSim() then return end
-    inst:ListenForEvent("death", function(inst)
-        DropGnome(inst, "bearger_gnome", .50)
-    end)
+    if not _G.TheWorld.ismastersim then
+        return inst
+    end
+
+    if inst.components.lootdropper ~= nil then
+        inst.components.lootdropper:AddChanceLoot("bearger_gnome", 0.50)
+    end
 end)
 
 --------------------------------------------------
 
 AddPrefabPostInit("moose", function(inst)
-    if not IsMasterSim() then return end
-    inst:ListenForEvent("death", function(inst)
-        DropGnome(inst, "egg_gnome", .20)
-    end)
+    if not _G.TheWorld.ismastersim then
+        return inst
+    end
+
+    if inst.components.lootdropper ~= nil then
+        inst.components.lootdropper:AddChanceLoot("egg_gnome", 0.20)
+    end
 end)
 
 --------------------------------------------------
@@ -67,26 +76,35 @@ end)
 --------------------------------------------------
 
 AddPrefabPostInit("beequeen", function(inst)
-    if not IsMasterSim() then return end
-    inst:ListenForEvent("death", function(inst)
-        DropGnome(inst, "beequeen_gnome", .20)
-    end)
+    if not _G.TheWorld.ismastersim then
+        return inst
+    end
+
+    if inst.components.lootdropper ~= nil then
+        inst.components.lootdropper:AddChanceLoot("beequeen_gnome", 0.20)
+    end
 end)
 
 --------------------------------------------------
 
 AddPrefabPostInit("toadstool", function(inst)
-    if not IsMasterSim() then return end
-    inst:ListenForEvent("death", function(inst)
-        DropGnome(inst, "toadstool_gnome1", .50)
-    end)
+    if not _G.TheWorld.ismastersim then
+        return inst
+    end
+
+    if inst.components.lootdropper ~= nil then
+        inst.components.lootdropper:AddChanceLoot("toadstool_gnome1", 0.50)
+    end
 end)
 
 AddPrefabPostInit("toadstool_dark", function(inst)
-    if not IsMasterSim() then return end
-    inst:ListenForEvent("death", function(inst)
-        DropGnome(inst, "toadstool_gnome2", 1)
-    end)
+    if not _G.TheWorld.ismastersim then
+        return inst
+    end
+
+    if inst.components.lootdropper ~= nil then
+        inst.components.lootdropper:AddChanceLoot("toadstool_gnome2", 1.00)
+    end
 end)
 
 --------------------------------------------------
@@ -117,35 +135,47 @@ end)
 --------------------------------------------------
 
 AddPrefabPostInit("snurtle", function(inst)
-    if not IsMasterSim() then return end
-    inst:ListenForEvent("death", function(inst)
-        DropGnome(inst, "snurtle_gnome", .5)
-    end)
+    if not _G.TheWorld.ismastersim then
+        return inst
+    end
+
+    if inst.components.lootdropper ~= nil then
+        inst.components.lootdropper:AddChanceLoot("snurtle_gnome", 0.50)
+    end
 end)
 
 --------------------------------------------------
 
 AddPrefabPostInit("nightmarebeak", function(inst)
-    if not IsMasterSim() then return end
-    inst:ListenForEvent("death", function(inst)
-        DropGnome(inst, "gloomy_gnome", .05)
-    end)
+    if not _G.TheWorld.ismastersim then
+        return inst
+    end
+
+    if inst.components.lootdropper ~= nil then
+        inst.components.lootdropper:AddChanceLoot("gloomy_gnome", 0.05)
+    end
 end)
 
 --------------------------------------------------
 
 AddPrefabPostInit("prime_mate", function(inst)
-    if not IsMasterSim() then return end
-    inst:ListenForEvent("death", function(inst)
-        DropGnome(inst, "pirate_gnome", .5)
-    end)
+    if not _G.TheWorld.ismastersim then
+        return inst
+    end
+
+    if inst.components.lootdropper ~= nil then
+        inst.components.lootdropper:AddChanceLoot("pirate_gnome", 0.50)
+    end
 end)
 
 AddPrefabPostInit("powder_monkey", function(inst)
-    if not IsMasterSim() then return end
-    inst:ListenForEvent("death", function(inst)
-        DropGnome(inst, "pirate_gnome", .10)
-    end)
+    if not _G.TheWorld.ismastersim then
+        return inst
+    end
+
+    if inst.components.lootdropper ~= nil then
+        inst.components.lootdropper:AddChanceLoot("pirate_gnome", 0.10)
+    end
 end)
 
 --------------------------------------------------
@@ -153,9 +183,11 @@ end)
 --------------------------------------------------
 
 AddPrefabPostInit("frog", function(inst)
-    if not IsMasterSim() then return end
+    if not _G.TheWorld.ismastersim then
+        return inst
+    end
 
-    if inst.components.lootdropper then
+    if inst.components.lootdropper ~= nil then
         inst.components.lootdropper:AddChanceLoot("beret_gnome", 0.05)
     end
 end)
@@ -184,9 +216,11 @@ AddPrefabPostInit("tumbleweed", function(inst)
             SpawnPrefab("stpatrick_gnomette").Transform:SetPosition(x, y, z)
         end
 
+        --[[
         if math.random() < 0.04 then
             SpawnPrefab("upsidedown_gnome").Transform:SetPosition(x, y, z)
         end
+        ]]--
     end)
 end)
 
@@ -269,6 +303,44 @@ AddPrefabPostInit("wetpouch", function(inst)
                     loot.Transform:SetPosition(pos.x, pos.y, pos.z)
                 end
             end
+        end
+    end
+end)
+
+--------------------------------------------------
+-- CAVES EARTHQUAKE
+--------------------------------------------------
+
+-- quaker component has 3 tiers, common, uncommon and rare = 1-2-3
+-- You can add a new tier too or just inject them into already existing tiers.
+-- The chances are already defined there, but you can also add custom logic too...
+AddPrefabPostInit("cave_network", function(inst)
+    if not _G.TheWorld.ismastersim then
+        return
+    end
+
+    -- I stg this component is retarded as fuck, not a single public variable
+    -- to edit or anything, holy shit Klei is in another level.
+    local quaker = inst.components.quaker
+
+    if not quaker then
+        return
+    end
+
+    -- Try search for debris table so we can inject our loot.
+    for i = 1, 20 do
+        local name, val = _G.debug.getupvalue(quaker.SetDebris, i)
+
+        if name == "_debris" then
+            table.insert(val, 
+            {
+                -- This is NOT chance. It's weighted, see components/quaker.lua
+                -- A bit lower than red, blue gems and marble...
+                weight = 0.01,
+                loot = { "upsidedown_gnome" }
+            })
+
+            break
         end
     end
 end)
