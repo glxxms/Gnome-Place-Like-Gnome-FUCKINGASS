@@ -581,3 +581,147 @@ local STPATRICK_GNOMETTE_STRINGS =
 NAMES.STPATRICK_GNOMETTE = "St. Patrick's Gnomette"
 SetItemsDescribeStrings("STPATRICK_GNOMETTE", STPATRICK_GNOMETTE_STRINGS)
 
+--
+
+local BERET_GNOME_STRINGS =
+{
+    GENERIC      = "A rather cultured little fellow.",
+    WAXWELL      = "An air of pretension in miniature.",
+    WOLFGANG     = "Tiny artist man!",
+    WX78         = "AESTHETICALLY INCLINED DECOR UNIT.",
+    WILLOW       = "Looks like he’d judge my flames.",
+    WENDY        = "He creates, yet remains unmoved.",
+    WOODIE       = "Fancy hat for a tiny guy.",
+    WICKERBOTTOM = "A gnome of apparent artistic pursuits.",
+    WATHGRITHR   = "A bard of brush and beret!",
+    WEBBER       = "He's got a cute hat!",
+    WINONA       = "Looks like he knows what he's doin'.",
+    WORTOX       = "Ho ho! A painter of peculiar taste!",
+    WORMWOOD     = "Hat friend.",
+    WALTER       = "He looks like an artist.",
+    WARLY        = "Ah! A connoisseur of the arts!",
+    WURT         = "Fancy hat gnome, florp!",
+    WANDA        = "A fleeting moment of inspiration.",
+}
+
+NAMES.BERET_GNOME = "Beret Gnome"
+
+SetItemsDescribeStrings("BERET_GNOME", BERET_GNOME_STRINGS)
+
+-- New: 04/01/26
+
+local BABY_GNOME_STRINGS =
+{
+    GENERIC      = "Just a tiny little thing.",
+    WAXWELL      = "Even smaller than ambition.",
+    WOLFGANG     = "Baby gnome is weak!",
+    WX78         = "MINIATURE DECORATIVE UNIT.",
+    WILLOW       = "Ugh, it's staring at me.",
+    WENDY        = "So small, yet it persists.",
+    WOODIE       = "Lil' guy, eh?",
+    WICKERBOTTOM = "A diminutive figurine.",
+    WATHGRITHR   = "A warrior yet to grow!",
+    WEBBER       = "It's just a baby!",
+    WINONA       = "Tiny but well made.",
+    WORTOX       = "A wee little wanderer!",
+    WORMWOOD     = "Small friend.",
+    WALTER       = "Adorable.",
+    WARLY        = "Petit and charming.",
+    WURT         = "Tiny gnome, florp!",
+    WANDA        = "It hasn't had time to age yet.",
+}
+NAMES.BABY_GNOME = "Baby Gnome"
+SetItemsDescribeStrings("BABY_GNOME", BABY_GNOME_STRINGS)
+
+local BABY_DEVIL_GNOME_STRINGS =
+{
+    GENERIC      = "That one has a mean streak.",
+    WAXWELL      = "Ambition in its purest form.",
+    WOLFGANG     = "Tiny angry man!",
+    WX78         = "HOSTILE MINIATURE UNIT.",
+    WILLOW       = "I like this one.",
+    WENDY        = "Born with something dark inside.",
+    WOODIE       = "Bit of a menace, eh?",
+    WICKERBOTTOM = "A mischievous effigy.",
+    WATHGRITHR   = "A fiend in miniature!",
+    WEBBER       = "He looks grumpy!",
+    WINONA       = "Got a little attitude.",
+    WORTOX       = "A devilish little darling!",
+    WORMWOOD     = "Angry friend.",
+    WALTER       = "I don't trust it.",
+    WARLY        = "Spicy temperament.",
+    WURT         = "Mean gnome! Blorp!",
+    WANDA        = "It started wrong.",
+}
+NAMES.BABY_DEVIL_GNOME = "Baby Devil Gnome"
+SetItemsDescribeStrings("BABY_DEVIL_GNOME", BABY_DEVIL_GNOME_STRINGS)
+
+local BABY_ANGEL_GNOME_STRINGS =
+{
+    GENERIC      = "A tiny little saint.",
+    WAXWELL      = "Innocence rarely lasts.",
+    WOLFGANG     = "Nice tiny man!",
+    WX78         = "BENIGN MINIATURE UNIT.",
+    WILLOW       = "Too pure. Gross.",
+    WENDY        = "Soft, fleeting goodness.",
+    WOODIE       = "Aw, that's a nice one.",
+    WICKERBOTTOM = "A representation of virtue.",
+    WATHGRITHR   = "A blessed little spirit!",
+    WEBBER       = "It looks so nice!",
+    WINONA       = "Sweet little thing.",
+    WORTOX       = "Heavenly and hollow!",
+    WORMWOOD     = "Kind friend.",
+    WALTER       = "I like this one.",
+    WARLY        = "Delicately divine.",
+    WURT         = "Nice gnome! Flurp!",
+    WANDA        = "It won't stay that way.",
+}
+NAMES.BABY_ANGEL_GNOME = "Baby Angel Gnome"
+SetItemsDescribeStrings("BABY_ANGEL_GNOME", BABY_ANGEL_GNOME_STRINGS)
+
+local BABY_KNIFE_GNOME_STRINGS =
+{
+    GENERIC      = "Why does it have that?",
+    WAXWELL      = "Intent made manifest.",
+    WOLFGANG     = "Tiny man has stab stick!",
+    WX78         = "THREAT DETECTED.",
+    WILLOW       = "Oh, that's fun.",
+    WENDY        = "It knows what it's doing.",
+    WOODIE       = "That ain't right.",
+    WICKERBOTTOM = "Concerning craftsmanship.",
+    WATHGRITHR   = "A blade for a tiny warrior!",
+    WEBBER       = "Why does it need that?!",
+    WINONA       = "That's… a little worrying.",
+    WORTOX       = "Stabby-stabby imp!",
+    WORMWOOD     = "Sharp friend.",
+    WALTER       = "I don't like that at all.",
+    WARLY        = "Dangerously playful.",
+    WURT         = "Pointy gnome! Blorp!",
+    WANDA        = "Already making choices.",
+}
+NAMES.BABY_KNIFE_GNOME = "Baby Knife Gnome"
+SetItemsDescribeStrings("BABY_KNIFE_GNOME", BABY_KNIFE_GNOME_STRINGS)
+
+local BABY_KNIFE_DARKNESS_GNOME_STRINGS =
+{
+    GENERIC      = "It feels wrong.",
+    WAXWELL      = "Now that is familiar.",
+    WOLFGANG     = "Bad tiny man!",
+    WX78         = "HIGH-THREAT SHADOW UNIT.",
+    WILLOW       = "Okay, that's a little much.",
+    WENDY        = "Something inside it is awake.",
+    WOODIE       = "Don't like the look of that one.",
+    WICKERBOTTOM = "A deeply unsettling effigy.",
+    WATHGRITHR   = "A cursed warrior!",
+    WEBBER       = "It's scary...",
+    WINONA       = "That one's bad news.",
+    WORTOX       = "Shadowed and sharp!",
+    WORMWOOD     = "Dark friend.",
+    WALTER       = "We should put that away.",
+    WARLY        = "A bitter creation.",
+    WURT         = "Scary gnome! Glorp!",
+    WANDA        = "It shouldn't exist.",
+}
+NAMES.BABY_KNIFE_DARKNESS_GNOME = "Baby Knife Gnome"
+SetItemsDescribeStrings("BABY_KNIFE_DARKNESS_GNOME", BABY_KNIFE_DARKNESS_GNOME_STRINGS)
+

@@ -2,29 +2,34 @@
 <Atlas>
 	<Texture filename="GPLG_inventoryimages.tex" />
 	<Elements>
-		<Element name="bearger_gnome.tex" u1="0.001" u2="0.124" v2="0.999" v1="0.801" variant="" />
-		<Element name="beequeen_gnome.tex" u1="0.126" u2="0.249" v2="0.999" v1="0.801" variant="" />
-		<Element name="beret_gnome.tex" u1="0.001" u2="0.124" v2="0.799" v1="0.601" variant="" />
-		<Element name="boot_gnome.tex" u1="0.126" u2="0.249" v2="0.799" v1="0.601" variant="" />
-		<Element name="buttcheek_gnome.tex" u1="0.251" u2="0.374" v2="0.999" v1="0.801" variant="" />
-		<Element name="chef_gnome.tex" u1="0.376" u2="0.499" v2="0.999" v1="0.801" variant="" />
-		<Element name="derp_gnome.tex" u1="0.251" u2="0.374" v2="0.799" v1="0.601" variant="" />
-		<Element name="dfly_gnome1.tex" u1="0.376" u2="0.499" v2="0.799" v1="0.601" variant="" />
-		<Element name="dfly_gnome2.tex" u1="0.001" u2="0.124" v2="0.599" v1="0.401" variant="" />
-		<Element name="egg_gnome.tex" u1="0.126" u2="0.249" v2="0.599" v1="0.401" variant="" />
-		<Element name="gloomy_gnome.tex" u1="0.251" u2="0.374" v2="0.599" v1="0.401" variant="" />
-		<Element name="gneo_gnome.tex" u1="0.376" u2="0.499" v2="0.599" v1="0.401" variant="" />
-		<Element name="gnudist_gnome.tex" u1="0.001" u2="0.124" v2="0.399" v1="0.201" variant="" />
-		<Element name="GPLG_TAB.tex" u1="0.501" u2="0.999" v2="0.999" v1="0.201" variant="" />
-		<Element name="ice_gnome.tex" u1="0.126" u2="0.249" v2="0.399" v1="0.201" variant="" />
-		<Element name="ice_gnomette.tex" u1="0.251" u2="0.374" v2="0.399" v1="0.201" variant="" />
-		<Element name="pirate_gnome.tex" u1="0.376" u2="0.499" v2="0.399" v1="0.201" variant="" />
-		<Element name="potted_gnome.tex" u1="0.001" u2="0.124" v2="0.199" v1="0.001" variant="" />
-		<Element name="snurtle_gnome.tex" u1="0.126" u2="0.249" v2="0.199" v1="0.001" variant="" />
-		<Element name="stpatrick_gnome.tex" u1="0.251" u2="0.374" v2="0.199" v1="0.001" variant="" />
-		<Element name="stpatrick_gnomette.tex" u1="0.376" u2="0.499" v2="0.199" v1="0.001" variant="" />
-		<Element name="toadstool_gnome1.tex" u1="0.501" u2="0.624" v2="0.199" v1="0.001" variant="" />
-		<Element name="toadstool_gnome2.tex" u1="0.626" u2="0.749" v2="0.199" v1="0.001" variant="" />
-		<Element name="upsidedown_gnome.tex" u1="0.751" u2="0.874" v2="0.199" v1="0.001" variant="" />
+		<Element name="baby_angel_gnome.tex" u1="0.001" u2="0.124" v2="0.999" v1="0.834333333333333" variant="" />
+		<Element name="baby_devil_gnome.tex" u1="0.126" u2="0.249" v2="0.999" v1="0.834333333333333" variant="" />
+		<Element name="baby_gnome.tex" u1="0.001" u2="0.124" v2="0.832333333333333" v1="0.667666666666667" variant="" />
+		<Element name="baby_knife_gnome.tex" u1="0.126" u2="0.249" v2="0.832333333333333" v1="0.667666666666667" variant="" />
+		<Element name="bearger_gnome.tex" u1="0.251" u2="0.374" v2="0.999" v1="0.834333333333333" variant="" />
+		<Element name="beequeen_gnome.tex" u1="0.376" u2="0.499" v2="0.999" v1="0.834333333333333" variant="" />
+		<Element name="beret_gnome.tex" u1="0.251" u2="0.374" v2="0.832333333333333" v1="0.667666666666667" variant="" />
+		<Element name="boot_gnome.tex" u1="0.376" u2="0.499" v2="0.832333333333333" v1="0.667666666666667" variant="" />
+		<Element name="buttcheek_gnome.tex" u1="0.001" u2="0.124" v2="0.665666666666667" v1="0.501" variant="" />
+		<Element name="chef_gnome.tex" u1="0.126" u2="0.249" v2="0.665666666666667" v1="0.501" variant="" />
+		<Element name="derp_gnome.tex" u1="0.251" u2="0.374" v2="0.665666666666667" v1="0.501" variant="" />
+		<Element name="dfly_gnome1.tex" u1="0.376" u2="0.499" v2="0.665666666666667" v1="0.501" variant="" />
+		<Element name="dfly_gnome2.tex" u1="0.001" u2="0.124" v2="0.499" v1="0.334333333333333" variant="" />
+		<Element name="egg_gnome.tex" u1="0.126" u2="0.249" v2="0.499" v1="0.334333333333333" variant="" />
+		<Element name="gloomy_gnome.tex" u1="0.251" u2="0.374" v2="0.499" v1="0.334333333333333" variant="" />
+		<Element name="gneo_gnome.tex" u1="0.376" u2="0.499" v2="0.499" v1="0.334333333333333" variant="" />
+		<Element name="gnudist_gnome.tex" u1="0.501" u2="0.624" v2="0.999" v1="0.834333333333333" variant="" />
+		<Element name="GPLG_TAB.tex" u1="0.501" u2="0.999" v2="0.832333333333333" v1="0.167666666666667" variant="" />
+		<Element name="ice_gnome.tex" u1="0.626" u2="0.749" v2="0.999" v1="0.834333333333333" variant="" />
+		<Element name="ice_gnomette.tex" u1="0.751" u2="0.874" v2="0.999" v1="0.834333333333333" variant="" />
+		<Element name="jimbo_gnome.tex" u1="0.876" u2="0.999" v2="0.999" v1="0.834333333333333" variant="" />
+		<Element name="pirate_gnome.tex" u1="0.001" u2="0.124" v2="0.332333333333333" v1="0.167666666666667" variant="" />
+		<Element name="potted_gnome.tex" u1="0.126" u2="0.249" v2="0.332333333333333" v1="0.167666666666667" variant="" />
+		<Element name="snurtle_gnome.tex" u1="0.251" u2="0.374" v2="0.332333333333333" v1="0.167666666666667" variant="" />
+		<Element name="stpatrick_gnome.tex" u1="0.376" u2="0.499" v2="0.332333333333333" v1="0.167666666666667" variant="" />
+		<Element name="stpatrick_gnomette.tex" u1="0.001" u2="0.124" v2="0.165666666666667" v1="0.001" variant="" />
+		<Element name="toadstool_gnome1.tex" u1="0.126" u2="0.249" v2="0.165666666666667" v1="0.001" variant="" />
+		<Element name="toadstool_gnome2.tex" u1="0.251" u2="0.374" v2="0.165666666666667" v1="0.001" variant="" />
+		<Element name="upsidedown_gnome.tex" u1="0.376" u2="0.499" v2="0.165666666666667" v1="0.001" variant="" />
 	</Elements>
 </Atlas>

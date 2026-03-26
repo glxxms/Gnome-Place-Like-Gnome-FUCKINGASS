@@ -31,8 +31,8 @@ AddPrefabPostInit("deerclops", function(inst)
     end
 
     if inst.components.lootdropper ~= nil then
-        inst.components.lootdropper:AddChanceLoot("ice_gnome", 0.20)
-        inst.components.lootdropper:AddChanceLoot("ice_gnomette", 0.08)
+        inst.components.lootdropper:AddChanceLoot("ice_gnome",      0.10) -- Down from 20%
+        inst.components.lootdropper:AddChanceLoot("ice_gnomette",   0.05) -- Down from 8%
     end
 end)
 
@@ -56,7 +56,7 @@ AddPrefabPostInit("moose", function(inst)
     end
 
     if inst.components.lootdropper ~= nil then
-        inst.components.lootdropper:AddChanceLoot("egg_gnome", 0.20)
+        inst.components.lootdropper:AddChanceLoot("egg_gnome", 0.10) -- Down from 20%
     end
 end)
 
@@ -65,7 +65,7 @@ end)
 AddPrefabPostInit("dragonfly", function(inst)
     if not IsMasterSim() then return end
     inst:ListenForEvent("death", function(inst)
-        DropGnome(inst, "dfly_gnome1", .20)
+        DropGnome(inst, "dfly_gnome1",  .10) -- Down from 20%
 
         if inst.enraged then
             DropGnome(inst, "dfly_gnome2", 1)
@@ -81,7 +81,7 @@ AddPrefabPostInit("beequeen", function(inst)
     end
 
     if inst.components.lootdropper ~= nil then
-        inst.components.lootdropper:AddChanceLoot("beequeen_gnome", 0.20)
+        inst.components.lootdropper:AddChanceLoot("beequeen_gnome", 0.10)   -- Down from 20%
     end
 end)
 
@@ -140,12 +140,12 @@ AddPrefabPostInit("snurtle", function(inst)
     end
 
     if inst.components.lootdropper ~= nil then
-        inst.components.lootdropper:AddChanceLoot("snurtle_gnome", 0.50)
+        inst.components.lootdropper:AddChanceLoot("snurtle_gnome", 0.10) -- Down from 50%
     end
 end)
 
 --------------------------------------------------
-
+-- Ruins Version
 AddPrefabPostInit("nightmarebeak", function(inst)
     if not _G.TheWorld.ismastersim then
         return inst
@@ -157,6 +157,18 @@ AddPrefabPostInit("nightmarebeak", function(inst)
 end)
 
 --------------------------------------------------
+-- Standard Version
+AddPrefabPostInit("terrorbeak", function(inst)
+    if not _G.TheWorld.ismastersim then
+        return inst
+    end
+
+    if inst.components.lootdropper ~= nil then
+        inst.components.lootdropper:AddChanceLoot("gloomy_gnome", 0.01)
+    end
+end)
+
+--------------------------------------------------
 
 AddPrefabPostInit("prime_mate", function(inst)
     if not _G.TheWorld.ismastersim then
@@ -164,7 +176,7 @@ AddPrefabPostInit("prime_mate", function(inst)
     end
 
     if inst.components.lootdropper ~= nil then
-        inst.components.lootdropper:AddChanceLoot("pirate_gnome", 0.50)
+        inst.components.lootdropper:AddChanceLoot("pirate_gnome", 0.20) -- Down from 50%
     end
 end)
 
@@ -188,12 +200,12 @@ AddPrefabPostInit("frog", function(inst)
     end
 
     if inst.components.lootdropper ~= nil then
-        inst.components.lootdropper:AddChanceLoot("beret_gnome", 0.05)
+        inst.components.lootdropper:AddChanceLoot("beret_gnome", 0.01)  -- Down from 5%
     end
 end)
 
 --------------------------------------------------
--- TUMBLEWEED
+-- TUMBLEWEED -- (These don't have a home yet, cheap way out).
 --------------------------------------------------
 
 AddPrefabPostInit("tumbleweed", function(inst)
@@ -204,23 +216,13 @@ AddPrefabPostInit("tumbleweed", function(inst)
 
         local x, y, z = inst.Transform:GetWorldPosition()
 
-        if math.random() < 0.05 then
+        if math.random() < 0.01 then    -- Down from 5%
             SpawnPrefab("potted_gnome").Transform:SetPosition(x, y, z)
         end
 
-        if math.random() < 0.03 then
-            SpawnPrefab("stpatrick_gnome").Transform:SetPosition(x, y, z)
+        if math.random() < 0.02 then    -- Down from 4%
+            SpawnPrefab("derp_gnome").Transform:SetPosition(x, y, z)
         end
-
-        if math.random() < 0.02 then
-            SpawnPrefab("stpatrick_gnomette").Transform:SetPosition(x, y, z)
-        end
-
-        --[[
-        if math.random() < 0.04 then
-            SpawnPrefab("upsidedown_gnome").Transform:SetPosition(x, y, z)
-        end
-        ]]--
     end)
 end)
 
@@ -241,7 +243,7 @@ AddPrefabPostInit("cookpot", function(inst)
 
                 inst:DoTaskInTime(self:GetTimeToCook() or 1, function()
                     if self.product ~= nil then
-                        if math.random() < .05 then
+                        if math.random() < .01 then -- Down from 5%
                             local x, y, z = inst.Transform:GetWorldPosition()
                             local gnome = SpawnPrefab("chef_gnome")
                             if gnome then
@@ -267,8 +269,11 @@ end)
 
 AddPrefabPostInit("shadow_knight", function(inst)
     if not IsMasterSim() then return end
+
     inst:ListenForEvent("death", function(inst)
-        DropGnome(inst, "gneo_gnome", .5)
+        if inst.level ~= nil and inst.level >= 3 then
+            DropGnome(inst, "gneo_gnome", 0.5)
+        end
     end)
 end)
 
@@ -290,20 +295,54 @@ AddPrefabPostInit("wetpouch", function(inst)
 
             if pos == nil then return end
 
-            if math.random() < .10 then
-                local loot = SpawnPrefab("gnudist_gnome")
-                if loot then
-                    loot.Transform:SetPosition(pos.x, pos.y, pos.z)
-                end
-            end
-
-            if math.random() < .10 then
+            if math.random() < .01 then
                 local loot = SpawnPrefab("buttcheek_gnome")
                 if loot then
                     loot.Transform:SetPosition(pos.x, pos.y, pos.z)
                 end
             end
         end
+    end
+end)
+
+--------------------------------------------------
+AddPrefabPostInit("birchnutdrake", function(inst)
+    if not _G.TheWorld.ismastersim then
+        return inst
+    end
+
+    if inst.components.lootdropper ~= nil then
+        inst.components.lootdropper:AddChanceLoot("gnudist_gnome", .01)  -- Down from 5%
+    end
+end)
+
+--------------------------------------------------
+-- HOLIDAYS
+--------------------------------------------------
+
+AddPrefabPostInit("potato_oversized", function(inst)
+    if not IsMasterSim() then return end
+
+    if inst.components.workable then
+        local old_onfinish = inst.components.workable.onfinish
+
+        inst.components.workable:SetOnFinishCallback(function(inst, worker)
+            local x, y, z = inst.Transform:GetWorldPosition()
+
+            -- Run original behavior first
+            if old_onfinish then
+                old_onfinish(inst, worker)
+            end
+
+            local roll = math.random()
+
+            if roll < 0.02 then
+                SpawnPrefab("stpatrick_gnome").Transform:SetPosition(x, y, z)
+
+            elseif roll < 0.03 then
+                SpawnPrefab("stpatrick_gnomette").Transform:SetPosition(x, y, z)
+            end
+        end)
     end
 end)
 
@@ -319,7 +358,7 @@ AddPrefabPostInit("cave_network", function(inst)
         return
     end
 
-    -- I stg this component is retarded as fuck, not a single public variable
+    -- I stg this component is (stupid) as fuck, not a single public variable
     -- to edit or anything, holy shit Klei is in another level.
     local quaker = inst.components.quaker
 
@@ -344,3 +383,5 @@ AddPrefabPostInit("cave_network", function(inst)
         end
     end
 end)
+
+-- Jimbo

@@ -1,12 +1,15 @@
 name		= "Gnome Place Like Gnome" 
 author		= "gloomy" 
-description = [[
+description = 
 
+[[
+
+Collectible gnomes! Collect them! All of them!
 
 ]]
 
 version_compatible	= "0.0"
-version				= "0.1"
+version				= "0.4"
 
 api_version			= 10 
 dst_compatible		= true 

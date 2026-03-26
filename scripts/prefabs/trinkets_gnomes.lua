@@ -32,14 +32,21 @@ local GNOMES =
     "gloomy_gnome",
     "stpatrick_gnome",
     "stpatrick_gnomette",
+
+    -- New! 04-01-26
+    "baby_gnome",
+    "baby_devil_gnome",
+    "baby_angel_gnome",
+    "baby_knife_gnome",
+    "baby_knife_darkness_gnome",
+    "jimbo_gnome",
 }
 
 --------------------------------------------------------------------------
 
--- SAFE TUNING DEFAULTS
-TUNING.STPATRICK_GNOME_LUCK = TUNING.STPATRICK_GNOME_LUCK or 0.1
-TUNING.STPATRICK_GNOME_HELD_BONUS = TUNING.STPATRICK_GNOME_HELD_BONUS or 0.15
-TUNING.STPATRICK_GNOME_STACK_BONUS = TUNING.STPATRICK_GNOME_STACK_BONUS or 0.02
+TUNING.STPATRICK_GNOME_LUCK         = TUNING.STPATRICK_GNOME_LUCK           or 0.01
+TUNING.STPATRICK_GNOME_HELD_BONUS   = TUNING.STPATRICK_GNOME_HELD_BONUS     or 0.01
+TUNING.STPATRICK_GNOME_STACK_BONUS  = TUNING.STPATRICK_GNOME_STACK_BONUS    or 0.02
 
 --------------------------------------------------------------------------
 
@@ -47,12 +54,10 @@ local function GetStPatrickLuck(inst, owner)
 
     local base = TUNING.STPATRICK_GNOME_LUCK
 
-    -- bonus if held by player
     if owner ~= nil and owner:HasTag("player") then
         base = base + TUNING.STPATRICK_GNOME_HELD_BONUS
     end
 
-    -- stacking bonus
     if inst.components.stackable ~= nil then
         local stack = inst.components.stackable:StackSize()
         if stack > 1 then
@@ -61,6 +66,29 @@ local function GetStPatrickLuck(inst, owner)
     end
 
     return base
+end
+
+--------------------------------------------------------------------------
+
+-- KNIFE BABY ANIMATION HANDLER
+local function StartKnifeBabyLoop(inst)
+
+    if inst._animtask ~= nil then
+        inst._animtask:Cancel()
+        inst._animtask = nil
+    end
+
+    local function PlayOnce()
+        if inst.AnimState ~= nil and inst._gnome_anim ~= nil then
+            inst.AnimState:PlayAnimation(inst._gnome_anim, false)
+        end
+    end
+
+    -- play immediately
+    PlayOnce()
+
+    -- repeat every 30 seconds
+    inst._animtask = inst:DoPeriodicTask(30, PlayOnce)
 end
 
 --------------------------------------------------------------------------
@@ -79,7 +107,14 @@ local function MakeGnome(name)
 
         inst.AnimState:SetBank("trinkets_gnomes")
         inst.AnimState:SetBuild("trinkets_gnomes")
-        inst.AnimState:PlayAnimation(name)
+
+        inst._gnome_anim = name
+
+        if name == "baby_knife_gnome" or name == "baby_knife_darkness_gnome" then
+            inst.AnimState:PlayAnimation(name, false)
+        else
+            inst.AnimState:PlayAnimation(name, true)
+        end
 
         inst:AddTag("trinket")
         inst:AddTag("gnome")
@@ -93,15 +128,11 @@ local function MakeGnome(name)
         inst:AddComponent("inspectable")
 
         inst:AddComponent("inventoryitem")
-        -- Don't really need to specify those in here.
-        -- inst.components.inventoryitem.imagename = name
-        -- inst.components.inventoryitem.atlasname = "images/GPLG_inventoryimages.xml"
 
         inst:AddComponent("tradable")
 
         inst:AddComponent("stackable")
         inst.components.stackable.maxsize = TUNING.STACK_SIZE_SMALLITEM
-
 
         ------------------------------------------------------------------
         -- ST PATRICK LUCK SYSTEM
@@ -111,6 +142,21 @@ local function MakeGnome(name)
             inst:AddComponent("luckitem")
             inst.components.luckitem:SetLuck(GetStPatrickLuck)
             inst:AddTag("lucky")
+        end
+
+        ------------------------------------------------------------------
+        -- KNIFE BABY LOOP START
+        ------------------------------------------------------------------
+
+        if name == "baby_knife_gnome" or name == "baby_knife_darkness_gnome" then
+            inst:DoTaskInTime(0, StartKnifeBabyLoop)
+
+            inst:ListenForEvent("onremove", function()
+                if inst._animtask ~= nil then
+                    inst._animtask:Cancel()
+                    inst._animtask = nil
+                end
+            end)
         end
 
         ------------------------------------------------------------------
