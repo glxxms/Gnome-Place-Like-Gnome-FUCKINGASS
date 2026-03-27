@@ -37,6 +37,8 @@ RECIPE_DESC.TEST	= "TODO"
 SetItemsDescribeStrings("TEST", TEST_STRINGS)
 ]]
 
+STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_UPSIDEDOWN = "Using text because well, you know... earthquakes are not a scrapbook thing :)"
+
 local ICE_GNOME_STRINGS =
 {
     GENERIC      = "A chilly little fellow.",
@@ -198,7 +200,7 @@ local BEARGER_GNOME_STRINGS =
     WOODIE       = "That little guy wouldn't last a day in the woods.",
     WICKERBOTTOM = "A curious, bear-like figurine with exaggerated features.",
     WATHGRITHR   = "A warrior in spirit, if not in scale.",
-    WEBBER       = "He’s got fuzzy ears! I like him!",
+    WEBBER       = "Heï¿½s got fuzzy ears! I like him!",
     WINONA       = "Looks like it could knock over... a cup, maybe.",
     WORTOX       = "A puffed-up little rascal!",
     WORMWOOD     = "Soft friend. Loud energy.",
@@ -589,7 +591,7 @@ local BERET_GNOME_STRINGS =
     WAXWELL      = "An air of pretension in miniature.",
     WOLFGANG     = "Tiny artist man!",
     WX78         = "AESTHETICALLY INCLINED DECOR UNIT.",
-    WILLOW       = "Looks like he’d judge my flames.",
+    WILLOW       = "Looks like he'd judge my flames.",
     WENDY        = "He creates, yet remains unmoved.",
     WOODIE       = "Fancy hat for a tiny guy.",
     WICKERBOTTOM = "A gnome of apparent artistic pursuits.",
@@ -691,7 +693,7 @@ local BABY_KNIFE_GNOME_STRINGS =
     WICKERBOTTOM = "Concerning craftsmanship.",
     WATHGRITHR   = "A blade for a tiny warrior!",
     WEBBER       = "Why does it need that?!",
-    WINONA       = "That's… a little worrying.",
+    WINONA       = "That'sï¿½ a little worrying.",
     WORTOX       = "Stabby-stabby imp!",
     WORMWOOD     = "Sharp friend.",
     WALTER       = "I don't like that at all.",
@@ -725,3 +727,4 @@ local BABY_KNIFE_DARKNESS_GNOME_STRINGS =
 NAMES.BABY_KNIFE_DARKNESS_GNOME = "Baby Knife Gnome"
 SetItemsDescribeStrings("BABY_KNIFE_DARKNESS_GNOME", BABY_KNIFE_DARKNESS_GNOME_STRINGS)
 
+NAMES.JIMBO_GNOME = "JIMBO Gnome"
