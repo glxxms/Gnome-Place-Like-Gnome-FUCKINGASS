@@ -1,6 +1,7 @@
 local _G            = GLOBAL
 local require       = _G.require
 local SpawnPrefab   = _G.SpawnPrefab
+local UpvalueHacker = require("tools/upvaluehacker")
 
 --------------------------------------------------
 
@@ -384,4 +385,20 @@ AddPrefabPostInit("cave_network", function(inst)
     end
 end)
 
--- Jimbo
+--------------------------------------------------
+-- JIMBO
+--------------------------------------------------
+-- Command for getting max score: c_sel()._currentgame.score = 8
+-- * You must open jimbo's screen first *
+AddPrefabPostInit("balatro_machine", function(inst)
+    local _REWARDS = UpvalueHacker.GetUpvalue(_G.Prefabs.balatro_machine.fn, 
+    "EndInteraction", "StartRewardsSequence", "DoDelayedRewards", "REWARDS")
+    
+    if _REWARDS then
+        for _, reward in ipairs(_REWARDS) do
+            if reward.string == "TREASURE" then
+                table.insert(reward.loot, {"jimbo_gnome", 1})
+            end
+        end
+    end
+end)
