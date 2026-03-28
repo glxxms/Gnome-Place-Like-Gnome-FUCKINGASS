@@ -1,40 +1,56 @@
-local scrapbookdata = 
+local scrapbookdata =
 {
-    ice_gnome                 = { deps = { "deerclops"                   } },
-    ice_gnomette              = { deps = { "deerclops"                   } },
-    egg_gnome                 = { deps = { "moose"                       } },
-    bearger_gnome             = { deps = { "bearger"                     } },
-    beret_gnome               = { deps = { "frog"                        } },
-    dfly_gnome1               = { deps = { "dragonfly"                   } },
-    dfly_gnome2               = { deps = { "dragonfly"                   } },
-    beequeen_gnome            = { deps = { "beequeen"                    } },
-    toadstool_gnome1          = { deps = { "toadstool"                   } },
-    toadstool_gnome2          = { deps = { "toadstool_dark"              } },
-    boot_gnome                = { deps = { "sharkboi"                    } },
-    upsidedown_gnome          = { specialinfo = "GNOME_UPSIDEDOWN"         },
-    derp_gnome                = { deps = { "tumbleweed"                  } },
-    chef_gnome                = { deps = { "cookpot"                     } },
-    potted_gnome              = { deps = { "tumbleweed"                  } },
-    gnudist_gnome             = { deps = { "birchnutdrake"               } },
-    buttcheek_gnome           = { deps = { "wetpouch"                    } },
-    gneo_gnome                = { deps = { "shadow_knight"               } },
-    snurtle_gnome             = { deps = { "snurtle"                     } },
-    pirate_gnome              = { deps = { "prime_mate", "powder_monkey" } },
-    gloomy_gnome              = { deps = { "terrorbeak"                  } }, -- Uhhh Nightmarebeak doesn't have an entry.
-    stpatrick_gnome           = { deps = { "potato_oversized"            } },
-    stpatrick_gnomette        = { deps = { "potato_oversized"            } },
-    baby_gnome                = { deps = { "tumbleweed"                  } },
-    baby_devil_gnome          = { deps = { "tumbleweed"                  } },
-    baby_angel_gnome          = { deps = { "tumbleweed"                  } },
-    baby_knife_gnome          = { deps = { "chester"                  } },
-    baby_knife_darkness_gnome = { deps = { "chester"                  } },
-    jimbo_gnome               = { deps = { "balatro_machine"             } },
-    poop_gnome                = { deps = { "pigman"             } },
-    baby_knife_ice_gnome      = { deps = { "chester"             } },
-    catcoon_gnome             = { deps = { "catcoon"             } },
-    catcoon_silly_gnome       = { deps = { "catcoon"             } },
-    derp_gnomette             = { deps = { "tumbleweed"             } },
-    raincoat_gnomette         = { specialinfo = "GNOME_UPSIDEDOWN"         },
+    ice_gnome                 = { deps = { "deerclops" },          specialinfo = "GNOME_ICE" },
+    ice_gnomette              = { deps = { "deerclops" },          specialinfo = "GNOME_ICE_GNOMETTE" },
+
+    egg_gnome                 = { deps = { "moose" },              specialinfo = "GNOME_EGG" },
+    bearger_gnome             = { deps = { "bearger" },            specialinfo = "GNOME_BEARGER" },
+    beret_gnome               = { deps = { "frog" },               specialinfo = "GNOME_BERET" },
+
+    dfly_gnome1               = { deps = { "dragonfly" },          specialinfo = "GNOME_DFLY_1" },
+    dfly_gnome2               = { deps = { "dragonfly" },          specialinfo = "GNOME_DFLY_2" },
+
+    beequeen_gnome            = { deps = { "beequeen" },           specialinfo = "GNOME_BEEQUEEN" },
+    toadstool_gnome1          = { deps = { "toadstool" },          specialinfo = "GNOME_TOADSTOOL_1" },
+    toadstool_gnome2          = { deps = { "toadstool_dark" },     specialinfo = "GNOME_TOADSTOOL_2" },
+
+    boot_gnome                = { deps = { "sharkboi" },           specialinfo = "GNOME_BOOT" },
+    upsidedown_gnome          = { deps = { "cavein_boulder" },     specialinfo = "GNOME_UPSIDEDOWN" },
+
+    derp_gnome                = { deps = { "tumbleweed" },         specialinfo = "GNOME_DERP" },
+    derp_gnomette             = { deps = { "tumbleweed" },         specialinfo = "GNOME_DERP_GNOMETTE" },
+
+    chef_gnome                = { deps = { "cookpot" },            specialinfo = "GNOME_CHEF" },
+    potted_gnome              = { deps = { "tumbleweed" },         specialinfo = "GNOME_POTTED" },
+
+    gnudist_gnome             = { deps = { "birchnutdrake" },      specialinfo = "GNOME_GNUDIST" },
+    buttcheek_gnome           = { deps = { "wetpouch" },           specialinfo = "GNOME_BUTTCHEEK" },
+
+    gneo_gnome                = { deps = { "shadow_knight" },      specialinfo = "GNOME_GNEO" },
+    gloomy_gnome              = { deps = { "terrorbeak" },         specialinfo = "GNOME_GLOOMY" },
+
+    snurtle_gnome             = { deps = { "snurtle" },            specialinfo = "GNOME_SNURTLE" },
+    pirate_gnome              = { deps = { "prime_mate", "powder_monkey" }, specialinfo = "GNOME_PIRATE" },
+
+    stpatrick_gnome           = { deps = { "potato_oversized" },   specialinfo = "GNOME_STPATRICK" },
+    stpatrick_gnomette        = { deps = { "potato_oversized" },   specialinfo = "GNOME_STPATRICK_GNOMETTE" },
+
+    baby_gnome                = { deps = { "tumbleweed" },         specialinfo = "GNOME_BABY" },
+    baby_devil_gnome          = { deps = { "critterlab" },         specialinfo = "GNOME_BABY_DEVIL" },
+    baby_angel_gnome          = { deps = { "critterlab" },         specialinfo = "GNOME_BABY_ANGEL" },
+
+    baby_knife_gnome          = { deps = { "chester" },            specialinfo = "GNOME_KNIFE" },
+    baby_knife_darkness_gnome = { deps = { "chester" },            specialinfo = "GNOME_KNIFE_DARKNESS" },
+    baby_knife_ice_gnome      = { deps = { "chester" },            specialinfo = "GNOME_KNIFE_ICE" },
+
+    jimbo_gnome               = { deps = { "balatro_machine" },    specialinfo = "GNOME_JIMBO" },
+
+    poop_gnome                = { deps = { "pigman" },             specialinfo = "GNOME_POOP" },
+
+    catcoon_gnome             = { deps = { "catcoon" },            specialinfo = "GNOME_CATCOON" },
+    catcoon_silly_gnome       = { deps = { "catcoon" },            specialinfo = "GNOME_CATCOON_SILLY" },
+
+    raincoat_gnomette         = { deps = { "raincoat" },           specialinfo = "GNOME_RAINCOAT" },
 }
 
 -- Command to unlock everything in the scrapbook: TheScrapbookPartitions:DebugUnlockEverything()

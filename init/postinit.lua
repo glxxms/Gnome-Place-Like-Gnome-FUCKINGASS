@@ -3,7 +3,7 @@ local require       = _G.require
 local SpawnPrefab   = _G.SpawnPrefab
 local UpvalueHacker = require("tools/upvaluehacker")
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 local function IsMasterSim()
     return _G.TheWorld ~= nil and _G.TheWorld.ismastersim
@@ -22,9 +22,9 @@ local function DropGnome(inst, gnome, chance)
     end
 end
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 -- BOSSES
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 AddPrefabPostInit("deerclops", function(inst)
     if not _G.TheWorld.ismastersim then
@@ -37,7 +37,7 @@ AddPrefabPostInit("deerclops", function(inst)
     end
 end)
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 AddPrefabPostInit("bearger", function(inst)
     if not _G.TheWorld.ismastersim then
@@ -49,7 +49,7 @@ AddPrefabPostInit("bearger", function(inst)
     end
 end)
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 AddPrefabPostInit("moose", function(inst)
     if not _G.TheWorld.ismastersim then
@@ -61,7 +61,7 @@ AddPrefabPostInit("moose", function(inst)
     end
 end)
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 AddPrefabPostInit("dragonfly", function(inst)
     if not IsMasterSim() then return end
@@ -74,7 +74,7 @@ AddPrefabPostInit("dragonfly", function(inst)
     end)
 end)
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 AddPrefabPostInit("beequeen", function(inst)
     if not _G.TheWorld.ismastersim then
@@ -86,7 +86,7 @@ AddPrefabPostInit("beequeen", function(inst)
     end
 end)
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 AddPrefabPostInit("toadstool", function(inst)
     if not _G.TheWorld.ismastersim then
@@ -108,9 +108,9 @@ AddPrefabPostInit("toadstool_dark", function(inst)
     end
 end)
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 -- TRADES
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 AddPrefabPostInit("sharkboi", function(inst)
     if not IsMasterSim() then return end
@@ -131,9 +131,9 @@ AddPrefabPostInit("sharkboi", function(inst)
     end)
 end)
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 -- CREATURES
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 AddPrefabPostInit("snurtle", function(inst)
     if not _G.TheWorld.ismastersim then
@@ -145,7 +145,7 @@ AddPrefabPostInit("snurtle", function(inst)
     end
 end)
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 -- Ruins Version
 AddPrefabPostInit("nightmarebeak", function(inst)
     if not _G.TheWorld.ismastersim then
@@ -157,7 +157,7 @@ AddPrefabPostInit("nightmarebeak", function(inst)
     end
 end)
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 -- Standard Version
 AddPrefabPostInit("terrorbeak", function(inst)
     if not _G.TheWorld.ismastersim then
@@ -169,7 +169,7 @@ AddPrefabPostInit("terrorbeak", function(inst)
     end
 end)
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 AddPrefabPostInit("prime_mate", function(inst)
     if not _G.TheWorld.ismastersim then
@@ -191,9 +191,7 @@ AddPrefabPostInit("powder_monkey", function(inst)
     end
 end)
 
---------------------------------------------------
--- FROG
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 AddPrefabPostInit("frog", function(inst)
     if not _G.TheWorld.ismastersim then
@@ -205,9 +203,9 @@ AddPrefabPostInit("frog", function(inst)
     end
 end)
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 -- TUMBLEWEED -- (These don't have a home yet, cheap way out).
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 AddPrefabPostInit("tumbleweed", function(inst)
     if not IsMasterSim() then return end
@@ -224,12 +222,15 @@ AddPrefabPostInit("tumbleweed", function(inst)
         if math.random() < 0.02 then    -- Down from 4%
             SpawnPrefab("derp_gnome").Transform:SetPosition(x, y, z)
         end
+        if math.random() < 0.02 then    -- Down from 4%
+            SpawnPrefab("derp_gnomette").Transform:SetPosition(x, y, z)
+        end
     end)
 end)
 
---------------------------------------------------
--- COOKPOT
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+-- COOKPOT -- No warly cookpot. No character exclusive shit.
+----------------------------------------------------------------------------------------------------
 
 AddPrefabPostInit("cookpot", function(inst)
     if not IsMasterSim() then return end
@@ -264,9 +265,9 @@ AddPrefabPostInit("cookpot", function(inst)
     end)
 end)
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 -- SHADOW
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 AddPrefabPostInit("shadow_knight", function(inst)
     if not IsMasterSim() then return end
@@ -278,9 +279,9 @@ AddPrefabPostInit("shadow_knight", function(inst)
     end)
 end)
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 -- WET POUCH
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 AddPrefabPostInit("wetpouch", function(inst)
     if not IsMasterSim() then return end
@@ -306,7 +307,7 @@ AddPrefabPostInit("wetpouch", function(inst)
     end
 end)
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 AddPrefabPostInit("birchnutdrake", function(inst)
     if not _G.TheWorld.ismastersim then
         return inst
@@ -317,10 +318,11 @@ AddPrefabPostInit("birchnutdrake", function(inst)
     end
 end)
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 -- HOLIDAYS
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
+-- St. Patricks - 03/16/26 - Released
 AddPrefabPostInit("potato_oversized", function(inst)
     if not IsMasterSim() then return end
 
@@ -347,9 +349,11 @@ AddPrefabPostInit("potato_oversized", function(inst)
     end
 end)
 
---------------------------------------------------
+-- April Fools -- TODO 04/01/26
+
+----------------------------------------------------------------------------------------------------
 -- CAVES EARTHQUAKE
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 -- quaker component has 3 tiers, common, uncommon and rare = 1-2-3
 -- You can add a new tier too or just inject them into already existing tiers.
@@ -385,9 +389,9 @@ AddPrefabPostInit("cave_network", function(inst)
     end
 end)
 
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 -- JIMBO
---------------------------------------------------
+----------------------------------------------------------------------------------------------------
 -- Command for getting max score: c_sel()._currentgame.score = 8
 -- * You must open jimbo's screen first *
 AddPrefabPostInit("balatro_machine", function(inst)
@@ -402,3 +406,40 @@ AddPrefabPostInit("balatro_machine", function(inst)
         end
     end
 end)
+
+----------------------------------------------------------------------------------------------------
+-- Baby Gnomes
+----------------------------------------------------------------------------------------------------
+
+-- Baby Devil Gnome -- Tested & works
+AddPrefabPostInit("krampus", function(inst)
+    if not _G.TheWorld.ismastersim then
+        return inst
+    end
+
+    if inst.components.lootdropper ~= nil then
+        inst.components.lootdropper:AddChanceLoot("baby_devil_gnome", .01) -- 1%
+    end
+end)
+
+----------------------------------------------------------------------------------------------------
+-- TODO -- 03-28-26 -- Scrapbook & New Gnome Update
+----------------------------------------------------------------------------------------------------
+-- baby_gnome                   -- 1% chance to be dropped by a Canary (not killing, just their spawns)
+-- baby_angel_gnome             -- Guaranteed to drop when releasing a volatile canary on the surface.
+----------------------------------------------------------------------------------------------------
+-- baby_knife_gnome             -- Guarenteed to drop from a player killing Chester
+-- baby_knife_darkness_gnome    -- Guarenteed to drop from a player killing  Shadow Chester
+-- baby_knife_ice_gnome         -- Guarenteed to drop from a player killing  Ice Chester
+----------------------------------------------------------------------------------------------------
+-- catcoon_gnome                -- 1% chance when killing a catcoon
+-- catcoon_silly_gnome          -- 5% chance for a catcoon to vomit it up.
+----------------------------------------------------------------------------------------------------
+-- poop_gnome                   -- 1% chance to drop from a werepig when they eat and poop
+----------------------------------------------------------------------------------------------------
+-- raincoat_gnomette            -- 1% chance to spawn while it is raining?
+----------------------------------------------------------------------------------------------------
+-- New! 04-01-26
+-- April Fool's Gnome
+
+

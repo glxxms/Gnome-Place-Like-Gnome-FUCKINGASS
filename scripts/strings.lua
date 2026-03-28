@@ -37,8 +37,59 @@ RECIPE_DESC.TEST	= "TODO"
 SetItemsDescribeStrings("TEST", TEST_STRINGS)
 ]]
 
-STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_UPSIDEDOWN  = "Chance to fall from the ceiling during an earthquake."
-STRINGS.SCRAPBOOK.SPECIALINFO.GNOMETTE_RAINCOAT = "Chance to fall from the sky when it rains."
+-- Scrapbook strings
+-- % Chance + How to get Gnomes
+
+--[[001]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_ICE                   = "10% chance to drop from killing Deerclops."
+--[[002]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_ICE_GNOMETTE          = "5% chance to drop from killing Deerclops."
+--[[003]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_EGG                   = "10% chance to drop from killing Moose/Goose."
+--[[004]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_BEARGER               = "50% chance to drop from killing Bearger."
+--[[005]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_DFLY_1                = "10% chance to drop from killing Dragonfly."
+--[[006]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_DFLY_2                = "Guaranteed drop from killing enraged Dragonfly."
+--[[007]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_BEEQUEEN              = "10% chance to drop from killing Bee Queen."
+--[[008]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_TOADSTOOL_1           = "50% chance to drop from killing Toadstool."
+--[[009]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_TOADSTOOL_2           = "Guaranteed drop from killing Misery Toadstool."
+--[[010]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_BOOT                  = "20% chance from trading fish with Frostjaw."
+
+--[[011]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_BERET                 = "5% chance to drop from killing frogs."
+
+--[[012]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_UPSIDEDOWN            = "Can fall from the ceiling during cave earthquakes."
+
+--[[013]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_DERP                  = "2% chance to be found in tumbleweeds."
+--[[014]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_DERP_GNOMETTE         = "2% chance to be found in tumbleweeds."
+
+--[[015]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_CHEF                  = "1% chance when dish completes in a cookpot."
+
+--[[016]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_POTTED                = "5% chance to be found in tumbleweeds."
+
+--[[017]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_GNUDIST               = "1% chance to drop from killing Birchnut Drakes."
+--[[018]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_BUTTCHEEK             = "1% chance when opening wet pouches."
+
+--[[019]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_GNEO                  = "50% chance to drop from killing a Tier 3 Shadow Knight."
+--[[020]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_GLOOMY                = "5% chance from killing ruins Terrorbeaks and 1% chance from killing standard Terrorbeaks."
+
+--[[021]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_SNURTLE               = "10% chance to drop from killing Snurtles."
+--[[022]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_PIRATE                = "20% chance to drop from killing Prime Mates and 10% chance from killing Powder Monkeys."
+
+--[[023]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_STPATRICK             = "2% chance when smashing an oversized potato."
+--[[024]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_STPATRICK_GNOMETTE    = "1% chance when smashing an oversized potato."
+
+--[[025]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_BABY                  = "5% chance to be found in tumbleweeds."
+--[[026]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_BABY_DEVIL            = "1% chance to drop from killing Krampus."
+--[[027]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_BABY_ANGEL            = "Guaranteed drop when releasing a Volatile Canary on the surface."
+
+--[[028]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_KNIFE                 = "Guaranteed drop from a player killing Shadow Chester."
+--[[029]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_KNIFE_DARKNESS        = "Guaranteed drop from a player killing Chester."
+--[[030]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_KNIFE_ICE             = "Guaranteed drop from a player killing Ice Chester."
+
+--[[031]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_JIMBO                 = "5% chance when the Balatro Machine rewards loot."
+
+--[[032]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_POOP                  = "1% chance for a Werepig to poop it out."
+
+--[[033]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_CATCOON               = "1% chance to drop from killing Catcoon."
+--[[034]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_CATCOON_SILLY         = "1% chance to be vomitted up by Catcoon."
+
+--[[035]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_RAINCOAT              = "1% chance to fall from the sky during rain."
 
 local ICE_GNOME_STRINGS =
 {
@@ -883,17 +934,17 @@ local RAINCOAT_GNOMETTE_STRINGS =
     GENERIC      = "Prepared for the worst.",
     WAXWELL      = "Practical, if uninspired.",
     WOLFGANG     = "Tiny rain lady!",
-    WX78         = "WEATHER-RESISTANT UNIT.",
-    WILLOW       = "At least it won’t get soggy.",
+    WX78         = "WEATHER-PREPARED UNIT.",
+    WILLOW       = "At least it won't get soggy.",
     WENDY        = "Even the rain cannot wash it clean.",
     WOODIE       = "Ready for a storm, eh.",
     WICKERBOTTOM = "Sensibly outfitted for inclement weather.",
     WATHGRITHR   = "Clad for battle against the storm!",
-    WEBBER       = "She won’t get wet!",
+    WEBBER       = "She won't get wet!",
     WINONA       = "Good thinking, honestly.",
     WORTOX       = "Drip-drop! Stay dry!",
-    WORMWOOD     = "Dry friend.",
-    WALTER       = "That’s actually pretty smart.",
+    WORMWOOD     = "Flower friend.",
+    WALTER       = "That's actually pretty smart.",
     WARLY        = "A practical ensemble.",
     WURT         = "Rain gnomette! Blorp!",
     WANDA        = "Prepared, unlike most.",

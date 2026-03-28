@@ -144,6 +144,7 @@ local function MakeGnome(name)
 
         inst:AddTag("trinket")
         inst:AddTag("gnome")
+        inst:AddTag("gnomes")
 
         inst.entity:SetPristine()
 
