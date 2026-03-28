@@ -7,6 +7,11 @@ local assets =
     Asset("ATLAS_BUILD", "images/GPLG_inventoryimages.xml", 256),
 }
 
+local prefabs =
+{
+    "flies",
+}
+
 local GNOMES =
 {
     "ice_gnome",
@@ -39,7 +44,13 @@ local GNOMES =
     "baby_angel_gnome",
     "baby_knife_gnome",
     "baby_knife_darkness_gnome",
+    "baby_knife_ice_gnome",
+    "catcoon_gnome",
+    "catcoon_silly_gnome",
+    "derp_gnomette",
     "jimbo_gnome",
+    "poop_gnome",
+    "raincoat_gnomette",
 }
 
 --------------------------------------------------------------------------
@@ -84,11 +95,26 @@ local function StartKnifeBabyLoop(inst)
         end
     end
 
-    -- play immediately
     PlayOnce()
 
-    -- repeat every 30 seconds
     inst._animtask = inst:DoPeriodicTask(30, PlayOnce)
+end
+
+--------------------------------------------------------------------------
+
+-- POOP GNOME FLIES HANDLER
+local function UpdateFlies(inst)
+
+    if inst._flies == nil then return end
+
+    local x, y, z = inst.Transform:GetWorldPosition()
+    local players = TheSim:FindEntities(x, y, z, 3, { "player" })
+
+    if #players > 0 then
+        inst._flies:Hide()
+    else
+        inst._flies:Show()
+    end
 end
 
 --------------------------------------------------------------------------
@@ -110,7 +136,7 @@ local function MakeGnome(name)
 
         inst._gnome_anim = name
 
-        if name == "baby_knife_gnome" or name == "baby_knife_darkness_gnome" then
+        if name == "baby_knife_gnome" or name == "baby_knife_darkness_gnome" or name == "baby_knife_ice_gnome" then
             inst.AnimState:PlayAnimation(name, false)
         else
             inst.AnimState:PlayAnimation(name, true)
@@ -126,9 +152,7 @@ local function MakeGnome(name)
         end
 
         inst:AddComponent("inspectable")
-
         inst:AddComponent("inventoryitem")
-
         inst:AddComponent("tradable")
 
         inst:AddComponent("stackable")
@@ -160,21 +184,55 @@ local function MakeGnome(name)
         end
 
         ------------------------------------------------------------------
+        -- POOP GNOME FLIES
+        ------------------------------------------------------------------
+
+        if name == "poop_gnome" then
+
+            inst._flies = SpawnPrefab("flies")
+
+            if inst._flies ~= nil then
+                inst._flies.entity:SetParent(inst.entity)
+
+                inst._flies.Transform:SetPosition(
+                    math.random() * 0.3 - 0.15,
+                    0.5,
+                    math.random() * 0.3 - 0.15
+                )
+            end
+
+            inst._fliestask = inst:DoPeriodicTask(1, UpdateFlies)
+
+            inst:DoTaskInTime(0, UpdateFlies)
+
+            inst:ListenForEvent("onremove", function()
+                if inst._flies ~= nil then
+                    inst._flies:Remove()
+                    inst._flies = nil
+                end
+                if inst._fliestask ~= nil then
+                    inst._fliestask:Cancel()
+                    inst._fliestask = nil
+                end
+            end)
+        end
+
+        ------------------------------------------------------------------
 
         MakeHauntableLaunch(inst)
 
         return inst
     end
 
-    return Prefab(name, fn, assets)
+    return Prefab(name, fn, assets, prefabs)
 end
 
 --------------------------------------------------------------------------
 
-local prefabs = {}
+local prefab_list = {}
 
 for _, gnome in ipairs(GNOMES) do
-    table.insert(prefabs, MakeGnome(gnome))
+    table.insert(prefab_list, MakeGnome(gnome))
 end
 
-return unpack(prefabs)
+return unpack(prefab_list)

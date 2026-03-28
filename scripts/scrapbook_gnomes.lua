@@ -26,9 +26,15 @@ local scrapbookdata =
     baby_gnome                = { deps = { "tumbleweed"                  } },
     baby_devil_gnome          = { deps = { "tumbleweed"                  } },
     baby_angel_gnome          = { deps = { "tumbleweed"                  } },
-    baby_knife_gnome          = { deps = { "tumbleweed"                  } },
-    baby_knife_darkness_gnome = { deps = { "tumbleweed"                  } },
+    baby_knife_gnome          = { deps = { "chester"                  } },
+    baby_knife_darkness_gnome = { deps = { "chester"                  } },
     jimbo_gnome               = { deps = { "balatro_machine"             } },
+    poop_gnome                = { deps = { "pigman"             } },
+    baby_knife_ice_gnome      = { deps = { "chester"             } },
+    catcoon_gnome             = { deps = { "catcoon"             } },
+    catcoon_silly_gnome       = { deps = { "catcoon"             } },
+    derp_gnomette             = { deps = { "tumbleweed"             } },
+    raincoat_gnomette         = { specialinfo = "GNOME_UPSIDEDOWN"         },
 }
 
 -- Command to unlock everything in the scrapbook: TheScrapbookPartitions:DebugUnlockEverything()
