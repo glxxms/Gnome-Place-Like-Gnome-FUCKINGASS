@@ -51,6 +51,7 @@ local GNOMES =
     "jimbo_gnome",
     "poop_gnome",
     "raincoat_gnomette",
+    "mod_cherryforest_gnomette",    -- Cherry Forest Mod
 }
 
 --------------------------------------------------------------------------

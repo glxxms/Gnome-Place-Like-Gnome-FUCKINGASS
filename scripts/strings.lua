@@ -90,6 +90,7 @@ SetItemsDescribeStrings("TEST", TEST_STRINGS)
 --[[034]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_CATCOON_SILLY         = "1% chance to be vomitted up by Catcoon."
 
 --[[035]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_RAINCOAT              = "1% chance to spawn from a Rainometer at the start of each day, IF it is raining."
+--[[036]] STRINGS.SCRAPBOOK.SPECIALINFO.MOD_GNOME_CHERRYFOREST      = "Guaranteed drop from giving a critter it's favorite food."
 
 local ICE_GNOME_STRINGS =
 {

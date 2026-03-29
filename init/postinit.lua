@@ -2,6 +2,7 @@ local _G            = GLOBAL
 local require       = _G.require
 local SpawnPrefab   = _G.SpawnPrefab
 local UpvalueHacker = require("tools/upvaluehacker")
+local TheWorld      = _G.TheWorld
 
 ----------------------------------------------------------------------------------------------------
 
@@ -133,9 +134,9 @@ AddPrefabPostInit("sharkboi", function(inst)
 end)
 
 ----------------------------------------------------------------------------------------------------
--- CREATURES
+-- CREATURES/MOB DROPS
 ----------------------------------------------------------------------------------------------------
-
+-- Snurtle Gnome
 AddPrefabPostInit("snurtle", function(inst)
     if not _G.TheWorld.ismastersim then
         return inst
@@ -147,7 +148,7 @@ AddPrefabPostInit("snurtle", function(inst)
 end)
 
 ----------------------------------------------------------------------------------------------------
--- Ruins Version
+-- Terrorbeak - Ruins Version
 AddPrefabPostInit("nightmarebeak", function(inst)
     if not _G.TheWorld.ismastersim then
         return inst
@@ -159,7 +160,7 @@ AddPrefabPostInit("nightmarebeak", function(inst)
 end)
 
 ----------------------------------------------------------------------------------------------------
--- Standard Version
+-- Terrorbeak - Standard Version
 AddPrefabPostInit("terrorbeak", function(inst)
     if not _G.TheWorld.ismastersim then
         return inst
@@ -267,9 +268,9 @@ AddPrefabPostInit("cookpot", function(inst)
 end)
 
 ----------------------------------------------------------------------------------------------------
--- SHADOW
+-- MYTHICAL GNOMES -- 
 ----------------------------------------------------------------------------------------------------
-
+-- Neo/Matrix
 AddPrefabPostInit("shadow_knight", function(inst)
     if not IsMasterSim() then return end
 
@@ -308,16 +309,7 @@ AddPrefabPostInit("wetpouch", function(inst)
     end
 end)
 
-----------------------------------------------------------------------------------------------------
-AddPrefabPostInit("birchnutdrake", function(inst)
-    if not _G.TheWorld.ismastersim then
-        return inst
-    end
 
-    if inst.components.lootdropper ~= nil then
-        inst.components.lootdropper:AddChanceLoot("gnudist_gnome", .01)  -- Down from 5%
-    end
-end)
 
 ----------------------------------------------------------------------------------------------------
 -- HOLIDAYS
@@ -391,6 +383,9 @@ AddPrefabPostInit("cave_network", function(inst)
 end)
 
 ----------------------------------------------------------------------------------------------------
+-- UPDATED -- 03-29-26 -- Scrapbook & New Gnome Update
+----------------------------------------------------------------------------------------------------
+
 -- JIMBO
 ----------------------------------------------------------------------------------------------------
 -- Command for getting max score: c_sel()._currentgame.score = 8
@@ -421,6 +416,102 @@ AddPrefabPostInit("krampus", function(inst)
     if inst.components.lootdropper ~= nil then
         inst.components.lootdropper:AddChanceLoot("baby_devil_gnome", .01) -- 1%
     end
+end)
+-- baby_gnome                   -- 1% chance to be dropped by a Canary (not killing, just their periodic spawns)
+----------------------------------------------------------
+AddPrefabPostInit("canary", function(inst)
+    if not IsMasterSim() then return end
+
+    -- Hook into the canary's periodic spawn behavior
+    -- Canary uses periodic task for dropping seeds / spawning behavior
+    if inst.components.periodicspawner ~= nil then
+
+        local old_spawnfn = inst.components.periodicspawner.onspawn
+
+        inst.components.periodicspawner.onspawn = function(inst, ...)
+            -- Run original behavior FIRST
+            if old_spawnfn then
+                old_spawnfn(inst, ...)
+            end
+
+            -- 1% chance to spawn baby gnome
+            if math.random() < .01 then
+                local x, y, z = inst.Transform:GetWorldPosition()
+                local g = SpawnPrefab("baby_gnome")
+                if g then
+                    g.Transform:SetPosition(x, y, z)
+                end
+            end
+        end
+    end
+end)
+
+----------------------------------------------------------
+-- baby_angel_gnome             -- Guaranteed to drop when releasing a volatile canary on the surface.
+
+local SG = require("stategraphs/SGcanarypoisoned")
+
+local old_onenter = SG.states["recover_transform"].onenter
+
+SG.states["recover_transform"].onenter = function(inst, ...)
+
+    -- Run original (spawns feathers)
+    if old_onenter then
+        old_onenter(inst, ...)
+    end
+
+    -- SAFE world access
+    if not _G.TheWorld or _G.TheWorld:HasTag("cave") then
+        return
+    end
+
+    -- Prevent duplicates
+    if inst._angel_gnome_given then
+        return
+    end
+    inst._angel_gnome_given = true
+
+    local x, y, z = inst.Transform:GetWorldPosition()
+
+    local g = SpawnPrefab("baby_angel_gnome")
+    if g then
+        g.Transform:SetPosition(x, y, z)
+
+        if g.Physics then
+            g.Physics:SetVel(
+                math.random()*2 - 1,
+                6,
+                math.random()*2 - 1
+            )
+        end
+    end
+end
+
+----------------------------------------------------------------------------------------------------
+-- baby_knife_gnome             -- Guarenteed to drop from a player killing Chester
+-- baby_knife_darkness_gnome    -- Guarenteed to drop from a player killing  Shadow Chester
+-- baby_knife_ice_gnome         -- Guarenteed to drop from a player killing  Ice Chester
+
+AddPrefabPostInit("chester", function(inst)
+    if not _G.TheWorld.ismastersim then
+        return inst
+    end
+    
+    inst:ListenForEvent("death", function(inst, data)
+        local killer = data and data.afflicter
+        
+        if killer and killer:HasTag("player") then
+            local chester_state = inst._chesterstate and inst._chesterstate:value() or 1
+            if inst.components.lootdropper == nil then
+                inst:AddComponent("lootdropper")
+            end
+            
+            inst.components.lootdropper:SpawnLootPrefab("baby_knife_"..(
+                chester_state       == 2   and "ice_"
+                or chester_state    == 3   and "darkness_"
+                or "").."gnome")
+        end
+    end)
 end)
 
 ----------------------------------------------------------------------------------------------------
@@ -482,22 +573,117 @@ AddPrefabPostInit("catcoon", function(inst)
     end
 end)
 
-----------------------------------------------------------------------------------------------------
--- TODO -- 03-28-26 -- Scrapbook & New Gnome Update
-----------------------------------------------------------------------------------------------------
--- baby_gnome                   -- 1% chance to be dropped by a Canary (not killing, just their spawns)
--- baby_angel_gnome             -- Guaranteed to drop when releasing a volatile canary on the surface.
-----------------------------------------------------------------------------------------------------
--- baby_knife_gnome             -- Guarenteed to drop from a player killing Chester
--- baby_knife_darkness_gnome    -- Guarenteed to drop from a player killing  Shadow Chester
--- baby_knife_ice_gnome         -- Guarenteed to drop from a player killing  Ice Chester
+
+
 ----------------------------------------------------------------------------------------------------
 -- catcoon_silly_gnome          -- 5% chance for a catcoon to vomit it up.
+AddPrefabPostInit("catcoon", function(inst)
+    if not _G.TheWorld.ismastersim then
+        return inst
+    end
+    
+    local OldPickRandomGift = inst.PickRandomGift
+    inst.PickRandomGift = function(inst, tier, ...)
+        if math.random() <= 0.05 and inst.components.lootdropper then
+            inst.components.lootdropper:SpawnLootPrefab("catcoon_silly_gnome")
+        end
+        
+        return OldPickRandomGift and OldPickRandomGift(inst, tier, ...)
+    end
+end)
+
 ----------------------------------------------------------------------------------------------------
 -- poop_gnome                   -- 1% chance to drop from a werepig when they eat and poop
+AddPrefabPostInit("pigman", function(inst)
+    if not _G.TheWorld.ismastersim then
+        return inst
+    end
+    
+    if inst.components.eater then
+        local OldOnEat = inst.components.eater.oneatfn
+        inst.components.eater:SetOnEatFn(function(inst, food, ...)
+            if math.random() <= 0.01 and food and food.components.edible and food.components.edible.foodtype == _G.FOODTYPE.VEGGIE
+                and inst.components.werebeast and inst.components.werebeast:IsInWereState() then
+                
+                SpawnPrefab("poop_gnome").Transform:SetPosition(inst.Transform:GetWorldPosition())
+            end
+            
+            return OldOnEat and OldOnEat(inst, food, ...)
+        end)
+    end
+end)
+
+----------------------------------------------------------------------------------------------------
+-- Favorite Mod Gnomes
+----------------------------------------------------------------------------------------------------
+-- Cherry Forest
+AddPrefabPostInitAny(function(inst)
+    if not _G.TheWorld.ismastersim or not inst:HasTag("critter") then
+        return inst
+    end
+    
+    if inst.components.eater then
+        local OldOnEat = inst.components.eater.oneatfn
+        inst.components.eater:SetOnEatFn(function(inst, food, feeder, ...)
+            if math.random() <= 0.1 and food and food.prefab == inst.favoritefood then
+                inst:DoTaskInTime(0.5 + math.random(), function(inst)
+                    if feeder and feeder:IsValid() then
+                        local gnome = SpawnPrefab("mod_cherryforest_gnomette")
+                        gnome.Transform:SetPosition(inst.Transform:GetWorldPosition())
+                        
+                        _G.LaunchAt(gnome, inst, feeder, 2)
+                    end
+                end)
+            end
+            
+            return OldOnEat and OldOnEat(inst, food, feeder, ...)
+        end)
+    end
+end)
+
 ----------------------------------------------------------------------------------------------------
 
--- New! 04-01-26
+
+
+
+
+----------------------------------------------------------------------------------------------------
+-- TODO -- 04-01-26
+----------------------------------------------------------------------------------------------------
 -- April Fool's Gnome
+----------------------------------------------------------------------------------------------------
+AddPrefabPostInit("hedgehound", function(inst)
+    if not TheWorld.ismastersim then return end
 
+    if inst.components.lootdropper then
 
+        local old_GenerateLoot = inst.components.lootdropper.GenerateLoot
+
+        inst.components.lootdropper.GenerateLoot = function(self, ...)
+            local loot = old_GenerateLoot(self, ...)
+
+            if loot ~= nil then
+
+                local has_fools = false
+
+                -- Check if Fool set is in the loot
+                for _, item in ipairs(loot) do
+                    if item == "foolhat" 
+                    or item == "foolarmor"
+                    or item == "foolmask"
+                    then
+                        has_fools = true
+                        break
+                    end
+                end
+
+                -- Only inject gnome if Fool loot exists
+                if has_fools then
+                    table.insert(loot, "aprilfools_gnome")
+                end
+            end
+
+            return loot
+        end
+    end
+end)
