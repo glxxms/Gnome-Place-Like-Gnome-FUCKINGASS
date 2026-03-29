@@ -29,7 +29,7 @@
 		<Element name="ice_gnome.tex" u1="0.876" u2="0.999" v2="0.856142857142857" v1="0.715285714285714" variant="" />
 		<Element name="ice_gnomette.tex" u1="0.001" u2="0.124" v2="0.427571428571429" v1="0.286714285714286" variant="" />
 		<Element name="jimbo_gnome.tex" u1="0.126" u2="0.249" v2="0.427571428571429" v1="0.286714285714286" variant="" />
-		<Element name="mod_cherry_gnomette.tex" u1="0.251" u2="0.374" v2="0.427571428571429" v1="0.286714285714286" variant="" />
+		<Element name="mod_cherryforest_gnomette.tex" u1="0.251" u2="0.374" v2="0.427571428571429" v1="0.286714285714286" variant="" />
 		<Element name="pirate_gnome.tex" u1="0.376" u2="0.499" v2="0.427571428571429" v1="0.286714285714286" variant="" />
 		<Element name="poop_gnome.tex" u1="0.001" u2="0.124" v2="0.284714285714286" v1="0.143857142857143" variant="" />
 		<Element name="potted_gnome.tex" u1="0.126" u2="0.249" v2="0.284714285714286" v1="0.143857142857143" variant="" />

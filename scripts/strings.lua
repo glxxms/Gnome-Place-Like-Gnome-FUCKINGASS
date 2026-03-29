@@ -87,10 +87,11 @@ SetItemsDescribeStrings("TEST", TEST_STRINGS)
 --[[032]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_POOP                  = "1% chance for a Werepig to poop it out."
 
 --[[033]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_CATCOON               = "1% chance to drop from killing Catcoon."
---[[034]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_CATCOON_SILLY         = "1% chance to be vomitted up by Catcoon."
+--[[034]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_CATCOON_SILLY         = "5% chance to be vomitted up by Catcoon."
 
---[[035]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_RAINCOAT              = "1% chance to spawn from a Rainometer at the start of each day, IF it is raining."
---[[036]] STRINGS.SCRAPBOOK.SPECIALINFO.MOD_GNOME_CHERRYFOREST      = "Guaranteed drop from giving a critter it's favorite food."
+--[[035]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOMETTE_RAINCOAT           = "1% chance to spawn from a Rainometer at the start of each day, IF it is raining."
+--[[036]] STRINGS.SCRAPBOOK.SPECIALINFO.MOD_GNOMETTE_CHERRYFOREST   = "Guaranteed drop from giving a critter it's favorite food."
+--[[037]] STRINGS.SCRAPBOOK.SPECIALINFO.APRILFOOLS_GNOME            = "1% chance to drop from killing a Briar Wolf."
 
 local ICE_GNOME_STRINGS =
 {
@@ -892,10 +893,10 @@ local CATCOON_SILLY_GNOME_STRINGS =
     WICKERBOTTOM = "A less refined specimen.",
     WATHGRITHR   = "A foolish creature!",
     WEBBER       = "He looks funny!",
-    WINONA       = "That one’s not all there.",
+    WINONA       = "That one's not all there.",
     WORTOX       = "Heehee! A silly little thief!",
     WORMWOOD     = "Silly friend.",
-    WALTER       = "I don't think it knows what it’s doing.",
+    WALTER       = "I don't think it knows what it's doing.",
     WARLY        = "Even less useful than expected.",
     WURT         = "Silly gnome! Blorp!",
     WANDA        = "A waste of time.",
@@ -953,3 +954,55 @@ local RAINCOAT_GNOMETTE_STRINGS =
 
 NAMES.RAINCOAT_GNOMETTE = "Raincoat Gnomette"
 SetItemsDescribeStrings("RAINCOAT_GNOMETTE", RAINCOAT_GNOMETTE_STRINGS)
+
+local MOD_CHERRYFOREST_GNOMETTE_STRINGS =
+{
+    GENERIC      = "Petals cling where they can.",
+    WAXWELL      = "Beauty, already beginning to fade.",
+    WOLFGANG     = "Tiny flower lady!",
+    WX78         = "FLORAL DECORATIVE UNIT.",
+    WILLOW       = "Looks soft. Flammable.",
+    WENDY        = "Even blossoms must wither.",
+    WOODIE       = "Spring don't last, eh.",
+    WICKERBOTTOM = "A figurine adorned in cherry blossoms.",
+    WATHGRITHR   = "A maiden crowned in petals!",
+    WEBBER       = "She smells nice!",
+    WINONA       = "Careful work. Must've taken time.",
+    WORTOX       = "Fleeting petals for fleeting things!",
+    WORMWOOD     = "Pretty flower friend.",
+    WALTER       = "It feels kind of peaceful.",
+    WARLY        = "Delicate, like a spring garnish.",
+    WURT         = "Cherry gnomette! Florp!",
+    WANDA        = "Blooming on borrowed time.",
+}
+
+NAMES.MOD_CHERRYFOREST_GNOMETTE = "Cherry Forest Gnomette"
+
+SetItemsDescribeStrings("MOD_CHERRYFOREST_GNOMETTE", MOD_CHERRYFOREST_GNOMETTE_STRINGS)
+
+--
+
+local APRILFOOLS_GNOME_STRINGS =
+{
+    GENERIC      = "I don't trust that moustache.",
+    WAXWELL      = "Mockery in its lowest form.",
+    WOLFGANG     = "Tiny trick man!",
+    WX78         = "UNTRUSTWORTHY DECORATIVE UNIT.",
+    WILLOW       = "It's gonna do something stupid, I can feel it.",
+    WENDY        = "It laughs, though nothing is funny.",
+    WOODIE       = "Feels like it's watchin' me, eh.",
+    WICKERBOTTOM = "A curious object with... mischievous intent.",
+    WATHGRITHR   = "A trickster! Face me honestly!",
+    WEBBER       = "He looks funny... I think?",
+    WINONA       = "Yeah, that thing's gonna mess something up.",
+    WORTOX       = "Heehee! A kindred prankster spirit!",
+    WORMWOOD     = "Strange smile friend.",
+    WALTER       = "I don't think I like that.",
+    WARLY        = "A most unsettling presentation.",
+    WURT         = "Bad gnome! Tricky! Florp!",
+    WANDA        = "It's already wasting my time.",
+}
+
+NAMES.APRILFOOLS_GNOME = "April Fools Gnome"
+
+SetItemsDescribeStrings("APRILFOOLS_GNOME", APRILFOOLS_GNOME_STRINGS)

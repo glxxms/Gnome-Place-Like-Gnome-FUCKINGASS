@@ -652,38 +652,13 @@ end)
 ----------------------------------------------------------------------------------------------------
 -- April Fool's Gnome
 ----------------------------------------------------------------------------------------------------
+
 AddPrefabPostInit("hedgehound", function(inst)
-    if not TheWorld.ismastersim then return end
+    if not _G.TheWorld.ismastersim then
+        return inst
+    end
 
-    if inst.components.lootdropper then
-
-        local old_GenerateLoot = inst.components.lootdropper.GenerateLoot
-
-        inst.components.lootdropper.GenerateLoot = function(self, ...)
-            local loot = old_GenerateLoot(self, ...)
-
-            if loot ~= nil then
-
-                local has_fools = false
-
-                -- Check if Fool set is in the loot
-                for _, item in ipairs(loot) do
-                    if item == "foolhat" 
-                    or item == "foolarmor"
-                    or item == "foolmask"
-                    then
-                        has_fools = true
-                        break
-                    end
-                end
-
-                -- Only inject gnome if Fool loot exists
-                if has_fools then
-                    table.insert(loot, "aprilfools_gnome")
-                end
-            end
-
-            return loot
-        end
+    if inst.components.lootdropper ~= nil then
+        inst.components.lootdropper:AddChanceLoot("aprilfools_gnome", .01)
     end
 end)
