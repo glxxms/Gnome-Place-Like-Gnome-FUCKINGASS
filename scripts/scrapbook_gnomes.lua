@@ -32,12 +32,12 @@ local scrapbookdata =
     snurtle_gnome             = { deps = { "snurtle" },            specialinfo = "GNOME_SNURTLE" },
     pirate_gnome              = { deps = { "prime_mate", "powder_monkey" }, specialinfo = "GNOME_PIRATE" },
 
-    stpatrick_gnome           = { deps = { "potato_oversized" },   specialinfo = "GNOME_STPATRICK" },
-    stpatrick_gnomette        = { deps = { "potato_oversized" },   specialinfo = "GNOME_STPATRICK_GNOMETTE" },
+    stpatrick_gnome           = { deps = { "potato_oversized" },            specialinfo = "GNOME_STPATRICK" },
+    stpatrick_gnomette        = { deps = { "potato_oversized" },            specialinfo = "GNOME_STPATRICK_GNOMETTE" },
 
-    baby_gnome                = { deps = { "tumbleweed" },         specialinfo = "GNOME_BABY" },
-    baby_devil_gnome          = { deps = { "critterlab" },         specialinfo = "GNOME_BABY_DEVIL" },
-    baby_angel_gnome          = { deps = { "critterlab" },         specialinfo = "GNOME_BABY_ANGEL" },
+    baby_gnome                = { deps = { "canary" },                      specialinfo = "GNOME_BABY" },
+    baby_devil_gnome          = { deps = { "krampus" },                     specialinfo = "GNOME_BABY_DEVIL" },
+    baby_angel_gnome          = { deps = { "canary" },                      specialinfo = "GNOME_BABY_ANGEL" },
 
     baby_knife_gnome          = { deps = { "chester" },            specialinfo = "GNOME_KNIFE" },
     baby_knife_darkness_gnome = { deps = { "chester" },            specialinfo = "GNOME_KNIFE_DARKNESS" },
@@ -50,7 +50,7 @@ local scrapbookdata =
     catcoon_gnome             = { deps = { "catcoon" },            specialinfo = "GNOME_CATCOON" },
     catcoon_silly_gnome       = { deps = { "catcoon" },            specialinfo = "GNOME_CATCOON_SILLY" },
 
-    raincoat_gnomette         = { deps = { "raincoat" },           specialinfo = "GNOME_RAINCOAT" },
+    raincoat_gnomette         = { deps = { "rainometer" },                  specialinfo = "GNOME_RAINCOAT" },
 }
 
 -- Command to unlock everything in the scrapbook: TheScrapbookPartitions:DebugUnlockEverything()

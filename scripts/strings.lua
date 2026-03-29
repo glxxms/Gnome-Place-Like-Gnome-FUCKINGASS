@@ -58,7 +58,7 @@ SetItemsDescribeStrings("TEST", TEST_STRINGS)
 --[[013]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_DERP                  = "2% chance to be found in tumbleweeds."
 --[[014]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_DERP_GNOMETTE         = "2% chance to be found in tumbleweeds."
 
---[[015]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_CHEF                  = "1% chance when dish completes in a cookpot."
+--[[015]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_CHEF                  = "1% chance to drop when a dish completes in a cookpot."
 
 --[[016]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_POTTED                = "5% chance to be found in tumbleweeds."
 
@@ -74,13 +74,13 @@ SetItemsDescribeStrings("TEST", TEST_STRINGS)
 --[[023]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_STPATRICK             = "2% chance when smashing an oversized potato."
 --[[024]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_STPATRICK_GNOMETTE    = "1% chance when smashing an oversized potato."
 
---[[025]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_BABY                  = "5% chance to be found in tumbleweeds."
+--[[025]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_BABY                  = "1% chance to be left as a gift by a canary."
 --[[026]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_BABY_DEVIL            = "1% chance to drop from killing Krampus."
 --[[027]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_BABY_ANGEL            = "Guaranteed drop when releasing a Volatile Canary on the surface."
 
---[[028]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_KNIFE                 = "Guaranteed drop from a player killing Shadow Chester."
---[[029]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_KNIFE_DARKNESS        = "Guaranteed drop from a player killing Chester."
---[[030]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_KNIFE_ICE             = "Guaranteed drop from a player killing Ice Chester."
+--[[028]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_KNIFE                 = "Guaranteed drop from a player killing Chester."
+--[[029]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_KNIFE_DARKNESS        = "Guaranteed drop from a player killing Shadow Chester."
+--[[030]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_KNIFE_ICE             = "Guaranteed drop from a player killing Snow Chester."
 
 --[[031]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_JIMBO                 = "5% chance when the Balatro Machine rewards loot."
 
@@ -89,7 +89,7 @@ SetItemsDescribeStrings("TEST", TEST_STRINGS)
 --[[033]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_CATCOON               = "1% chance to drop from killing Catcoon."
 --[[034]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_CATCOON_SILLY         = "1% chance to be vomitted up by Catcoon."
 
---[[035]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_RAINCOAT              = "1% chance to fall from the sky during rain."
+--[[035]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_RAINCOAT              = "1% chance to spawn from a Rainometer at the start of each day, IF it is raining."
 
 local ICE_GNOME_STRINGS =
 {

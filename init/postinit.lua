@@ -5,6 +5,7 @@ local UpvalueHacker = require("tools/upvaluehacker")
 
 ----------------------------------------------------------------------------------------------------
 
+
 local function IsMasterSim()
     return _G.TheWorld ~= nil and _G.TheWorld.ismastersim
 end
@@ -423,6 +424,65 @@ AddPrefabPostInit("krampus", function(inst)
 end)
 
 ----------------------------------------------------------------------------------------------------
+-- raincoat_gnomette            -- 1% chance to spawn from a rainometer at the start of each day, if it is raining.
+
+-- Safe spawn helper
+local function SafeSpawn(prefab, x, y, z)
+    if prefab == nil then return end
+    local g = SpawnPrefab(prefab)
+    if g ~= nil then
+        g.Transform:SetPosition(x, y, z)
+    end
+end
+
+AddPrefabPostInit("rainometer", function(inst)
+    if not IsMasterSim() then return end
+
+    inst:DoTaskInTime(0, function(inst)
+        if not IsMasterSim() then return end
+        if not inst:IsValid() or inst:HasTag("burnt") then return end
+
+        inst:WatchWorldState("cycles", function(inst)
+            if not IsMasterSim() then return end
+            if not inst:IsValid() or inst:HasTag("burnt") then return end
+            if not _G.TheWorld then return end
+
+            if _G.TheWorld.state.israining then
+                if math.random() < .01 then
+
+                    local x, y, z = inst.Transform:GetWorldPosition()
+
+                    local offsetx = math.random(-1, 1)
+                    local offsetz = math.random(-1, 1)
+
+                    local g = SpawnPrefab("raincoat_gnomette")
+                    if g then
+                        g.Transform:SetPosition(x, y + 0.5, z)
+
+                        -- bounce outward
+                        if g.Physics then
+                            g.Physics:Teleport(x, y + 0.5, z)
+                            g.Physics:SetVel(offsetx * 2, 4, offsetz * 2)
+                        end
+                    end
+                end
+            end
+        end)
+    end)
+end)
+
+-- catcoon_gnome                -- 1% chance when killing a catcoon
+AddPrefabPostInit("catcoon", function(inst)
+    if not _G.TheWorld.ismastersim then
+        return inst
+    end
+
+    if inst.components.lootdropper ~= nil then
+        inst.components.lootdropper:AddChanceLoot("catcoon_gnome", .01)
+    end
+end)
+
+----------------------------------------------------------------------------------------------------
 -- TODO -- 03-28-26 -- Scrapbook & New Gnome Update
 ----------------------------------------------------------------------------------------------------
 -- baby_gnome                   -- 1% chance to be dropped by a Canary (not killing, just their spawns)
@@ -432,13 +492,11 @@ end)
 -- baby_knife_darkness_gnome    -- Guarenteed to drop from a player killing  Shadow Chester
 -- baby_knife_ice_gnome         -- Guarenteed to drop from a player killing  Ice Chester
 ----------------------------------------------------------------------------------------------------
--- catcoon_gnome                -- 1% chance when killing a catcoon
 -- catcoon_silly_gnome          -- 5% chance for a catcoon to vomit it up.
 ----------------------------------------------------------------------------------------------------
 -- poop_gnome                   -- 1% chance to drop from a werepig when they eat and poop
 ----------------------------------------------------------------------------------------------------
--- raincoat_gnomette            -- 1% chance to spawn while it is raining?
-----------------------------------------------------------------------------------------------------
+
 -- New! 04-01-26
 -- April Fool's Gnome
 
