@@ -51,7 +51,7 @@ local scrapbookdata =
     catcoon_silly_gnome       = { deps = { "catcoon" },                     specialinfo = "GNOME_CATCOON_SILLY" },
 
     raincoat_gnomette         = { deps = { "rainometer" },                  specialinfo = "GNOMETTE_RAINCOAT" },
-    mod_cherryforest_gnomette = { deps = { "rockden" },                     specialinfo = "MOD_GNOMETTE_CHERRYFOREST" },
+    mod_cherryforest_gnomette = { deps = { "critterlab" },                  specialinfo = "MOD_GNOMETTE_CHERRYFOREST" },
     aprilfools_gnome          = { deps = { "hedgehound" },                  specialinfo = "APRILFOOLS_GNOME" },
     aprilfools_gnome          = { deps = { "hedgehound" },                  specialinfo = "APRILFOOLS_GNOME",
         bank    = "aprilfools_gnome",

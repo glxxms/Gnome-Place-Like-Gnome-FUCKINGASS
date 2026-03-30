@@ -82,7 +82,7 @@ SetItemsDescribeStrings("TEST", TEST_STRINGS)
 --[[029]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_KNIFE_DARKNESS        = "Guaranteed drop from a player killing Shadow Chester."
 --[[030]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_KNIFE_ICE             = "Guaranteed drop from a player killing Snow Chester."
 
---[[031]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_JIMBO                 = "5% chance when the Balatro Machine rewards loot."
+--[[031]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_JIMBO                 = "Guaranteed drop when scoring 1400 or higher when playing with Jimbo."
 
 --[[032]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_POOP                  = "1% chance for a Werepig to poop it out."
 
@@ -686,7 +686,7 @@ local BABY_GNOME_STRINGS =
     WURT         = "Tiny gnome, florp!",
     WANDA        = "It hasn't had time to age yet.",
 }
-NAMES.BABY_GNOME = "Baby Gnome"
+NAMES.BABY_GNOME = "Gnomlet"
 SetItemsDescribeStrings("BABY_GNOME", BABY_GNOME_STRINGS)
 
 local BABY_DEVIL_GNOME_STRINGS =
@@ -709,7 +709,7 @@ local BABY_DEVIL_GNOME_STRINGS =
     WURT         = "Mean gnome! Blorp!",
     WANDA        = "It started wrong.",
 }
-NAMES.BABY_DEVIL_GNOME = "Baby Devil Gnome"
+NAMES.BABY_DEVIL_GNOME = "Devil Gnomlet"
 SetItemsDescribeStrings("BABY_DEVIL_GNOME", BABY_DEVIL_GNOME_STRINGS)
 
 local BABY_ANGEL_GNOME_STRINGS =
@@ -732,7 +732,7 @@ local BABY_ANGEL_GNOME_STRINGS =
     WURT         = "Nice gnome! Flurp!",
     WANDA        = "It won't stay that way.",
 }
-NAMES.BABY_ANGEL_GNOME = "Baby Angel Gnome"
+NAMES.BABY_ANGEL_GNOME = "Angel Gnomlet"
 SetItemsDescribeStrings("BABY_ANGEL_GNOME", BABY_ANGEL_GNOME_STRINGS)
 
 local BABY_KNIFE_GNOME_STRINGS =
@@ -755,7 +755,7 @@ local BABY_KNIFE_GNOME_STRINGS =
     WURT         = "Pointy! Florp!",
     WANDA        = "Already making choices.",
 }
-NAMES.BABY_KNIFE_GNOME = "Baby Knife Gnome"
+NAMES.BABY_KNIFE_GNOME = "Knife-Wielding Gnomlet"
 SetItemsDescribeStrings("BABY_KNIFE_GNOME", BABY_KNIFE_GNOME_STRINGS)
 
 local BABY_KNIFE_DARKNESS_GNOME_STRINGS =
@@ -778,7 +778,7 @@ local BABY_KNIFE_DARKNESS_GNOME_STRINGS =
     WURT         = "Scary gnome! Glorp!",
     WANDA        = "It shouldn't exist.",
 }
-NAMES.BABY_KNIFE_DARKNESS_GNOME = "Baby Knife Gnome"
+NAMES.BABY_KNIFE_DARKNESS_GNOME = "Knife-Wielding Shadow Gnomlet"
 SetItemsDescribeStrings("BABY_KNIFE_DARKNESS_GNOME", BABY_KNIFE_DARKNESS_GNOME_STRINGS)
 
 --
@@ -852,7 +852,7 @@ local BABY_KNIFE_ICE_GNOME_STRINGS =
     WANDA        = "A brief but dangerous existence.",
 }
 
-NAMES.BABY_KNIFE_ICE_GNOME = "Baby Knife Ice Gnome"
+NAMES.BABY_KNIFE_ICE_GNOME = "Knife-Wielding Ice Gnomlet"
 SetItemsDescribeStrings("BABY_KNIFE_ICE_GNOME", BABY_KNIFE_ICE_GNOME_STRINGS)
 
 --
@@ -902,7 +902,7 @@ local CATCOON_SILLY_GNOME_STRINGS =
     WANDA        = "A waste of time.",
 }
 
-NAMES.CATCOON_SILLY_GNOME = "Silly Cat Gnome"
+NAMES.CATCOON_SILLY_GNOME = "Silly Catcoon Gnome"
 SetItemsDescribeStrings("CATCOON_SILLY_GNOME", CATCOON_SILLY_GNOME_STRINGS)
 
 --

@@ -562,6 +562,8 @@ AddPrefabPostInit("rainometer", function(inst)
     end)
 end)
 
+----------------------------------------------------------------------------------------------------
+
 -- catcoon_gnome                -- 1% chance when killing a catcoon
 AddPrefabPostInit("catcoon", function(inst)
     if not _G.TheWorld.ismastersim then
@@ -572,8 +574,6 @@ AddPrefabPostInit("catcoon", function(inst)
         inst.components.lootdropper:AddChanceLoot("catcoon_gnome", .01)
     end
 end)
-
-
 
 ----------------------------------------------------------------------------------------------------
 -- catcoon_silly_gnome          -- 5% chance for a catcoon to vomit it up.

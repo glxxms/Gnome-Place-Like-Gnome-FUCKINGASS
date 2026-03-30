@@ -44,7 +44,7 @@ end
 
 local function DoMoustacheGrow(inst)
     inst.AnimState:PlayAnimation("moustache_grow_big")
-    inst.AnimState:PushAnimation("moustache_big_idle", false)
+    inst.AnimState:PushAnimation("moustache_big_idle", true)
 
     inst:DoTaskInTime(15, function()
         if inst:IsValid() then
@@ -58,12 +58,12 @@ end
 
 local function DoTongue(inst)
     inst.AnimState:PlayAnimation("tongue_grow_long")
-    inst.AnimState:PushAnimation("tongue_idle", false)
+    inst.AnimState:PushAnimation("tongue_idle", true)
 
     inst:DoTaskInTime(10, function()
         if inst:IsValid() then
             inst.AnimState:PlayAnimation("tongue_wiggle")
-            inst.AnimState:PushAnimation("tongue_idle", false)
+            inst.AnimState:PushAnimation("tongue_idle", true)
 
             inst:DoTaskInTime(10, function()
                 if inst:IsValid() then
@@ -108,7 +108,7 @@ local function StartLoop(inst)
     local function Loop()
         PickBehavior(inst)
 
-        local delay = math.random(12, 25)
+        local delay = math.random(20, 30)
 
         inst._looptask = inst:DoTaskInTime(delay, Loop)
     end
