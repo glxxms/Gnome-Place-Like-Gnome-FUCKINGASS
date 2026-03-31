@@ -52,7 +52,6 @@ local scrapbookdata =
 
     raincoat_gnomette         = { deps = { "rainometer" },                  specialinfo = "GNOMETTE_RAINCOAT" },
     mod_cherryforest_gnomette = { deps = { "critterlab" },                  specialinfo = "MOD_GNOMETTE_CHERRYFOREST" },
-    aprilfools_gnome          = { deps = { "hedgehound" },                  specialinfo = "APRILFOOLS_GNOME" },
     aprilfools_gnome          = { deps = { "hedgehound" },                  specialinfo = "APRILFOOLS_GNOME",
         bank    = "aprilfools_gnome",
         build   = "aprilfools_gnome",

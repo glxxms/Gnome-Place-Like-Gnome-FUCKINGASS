@@ -90,7 +90,7 @@ SetItemsDescribeStrings("TEST", TEST_STRINGS)
 --[[034]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOME_CATCOON_SILLY         = "5% chance to be vomitted up by Catcoon."
 
 --[[035]] STRINGS.SCRAPBOOK.SPECIALINFO.GNOMETTE_RAINCOAT           = "1% chance to spawn from a Rainometer at the start of each day, IF it is raining."
---[[036]] STRINGS.SCRAPBOOK.SPECIALINFO.MOD_GNOMETTE_CHERRYFOREST   = "Guaranteed drop from giving a critter it's favorite food."
+--[[036]] STRINGS.SCRAPBOOK.SPECIALINFO.MOD_GNOMETTE_CHERRYFOREST   = "10% chance to drop from giving a critter it's favorite food."
 --[[037]] STRINGS.SCRAPBOOK.SPECIALINFO.APRILFOOLS_GNOME            = "1% chance to drop from killing a Briar Wolf."
 
 local ICE_GNOME_STRINGS =
@@ -961,7 +961,7 @@ local MOD_CHERRYFOREST_GNOMETTE_STRINGS =
     WAXWELL      = "Beauty, already beginning to fade.",
     WOLFGANG     = "Tiny flower lady!",
     WX78         = "FLORAL DECORATIVE UNIT.",
-    WILLOW       = "Looks soft. Flammable.",
+    WILLOW       = "Looks flammable.",
     WENDY        = "Even blossoms must wither.",
     WOODIE       = "Spring don't last, eh.",
     WICKERBOTTOM = "A figurine adorned in cherry blossoms.",
@@ -970,13 +970,13 @@ local MOD_CHERRYFOREST_GNOMETTE_STRINGS =
     WINONA       = "Careful work. Must've taken time.",
     WORTOX       = "Fleeting petals for fleeting things!",
     WORMWOOD     = "Pretty flower friend.",
-    WALTER       = "It feels kind of peaceful.",
+    WALTER       = "It seems kind of peaceful.",
     WARLY        = "Delicate, like a spring garnish.",
-    WURT         = "Cherry gnomette! Florp!",
+    WURT         = "Cheery gnomette! Florp!",
     WANDA        = "Blooming on borrowed time.",
 }
 
-NAMES.MOD_CHERRYFOREST_GNOMETTE = "Cherry Forest Gnomette"
+NAMES.MOD_CHERRYFOREST_GNOMETTE = "Cheery Gnomette"
 
 SetItemsDescribeStrings("MOD_CHERRYFOREST_GNOMETTE", MOD_CHERRYFOREST_GNOMETTE_STRINGS)
 
