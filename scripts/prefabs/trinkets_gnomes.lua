@@ -54,13 +54,9 @@ local GNOMES =
     "mod_cherryforest_gnomette",    -- Cherry Forest Mod
 }
 
---------------------------------------------------------------------------
-
 TUNING.STPATRICK_GNOME_LUCK         = TUNING.STPATRICK_GNOME_LUCK           or 0.01
 TUNING.STPATRICK_GNOME_HELD_BONUS   = TUNING.STPATRICK_GNOME_HELD_BONUS     or 0.01
 TUNING.STPATRICK_GNOME_STACK_BONUS  = TUNING.STPATRICK_GNOME_STACK_BONUS    or 0.02
-
---------------------------------------------------------------------------
 
 local function GetStPatrickLuck(inst, owner)
 
@@ -80,9 +76,6 @@ local function GetStPatrickLuck(inst, owner)
     return base
 end
 
---------------------------------------------------------------------------
-
--- KNIFE BABY ANIMATION HANDLER
 local function StartKnifeBabyLoop(inst)
 
     if inst._animtask ~= nil then
@@ -101,9 +94,6 @@ local function StartKnifeBabyLoop(inst)
     inst._animtask = inst:DoPeriodicTask(30, PlayOnce)
 end
 
---------------------------------------------------------------------------
-
--- POOP GNOME FLIES HANDLER
 local function UpdateFlies(inst)
 
     if inst._flies == nil then return end
@@ -118,8 +108,6 @@ local function UpdateFlies(inst)
     end
 end
 
---------------------------------------------------------------------------
-
 local function MakeGnome(name)
 
     local function fn()
@@ -129,8 +117,10 @@ local function MakeGnome(name)
         inst.entity:AddTransform()
         inst.entity:AddAnimState()
         inst.entity:AddNetwork()
+        inst.entity:AddFollower()
 
         MakeInventoryPhysics(inst)
+        MakeInventoryFloatable(inst)
 
         inst.AnimState:SetBank("trinkets_gnomes")
         inst.AnimState:SetBuild("trinkets_gnomes")
@@ -146,6 +136,9 @@ local function MakeGnome(name)
         inst:AddTag("trinket")
         inst:AddTag("gnome")
         inst:AddTag("gnomes")
+        inst:AddTag("molebait")          -- Sorry!
+        inst:AddTag("cattoy")            -- Sorry!
+        inst:AddTag("furnituredecor")    -- You're welcome!
 
         inst.entity:SetPristine()
 
@@ -155,24 +148,20 @@ local function MakeGnome(name)
 
         inst:AddComponent("inspectable")
         inst:AddComponent("inventoryitem")
-        inst:AddComponent("tradable")
+        inst:AddComponent("furnituredecor")
 
         inst:AddComponent("stackable")
         inst.components.stackable.maxsize = TUNING.STACK_SIZE_SMALLITEM
 
-        ------------------------------------------------------------------
-        -- ST PATRICK LUCK SYSTEM
-        ------------------------------------------------------------------
+        inst:AddComponent("tradable")
+        inst.components.tradable.goldvalue   = TUNING.GOLD_VALUES.TRINKETS[4] or 3
+        inst.components.tradable.rocktribute = math.ceil(inst.components.tradable.goldvalue / 3)
 
         if string.find(name, "stpatrick") then
             inst:AddComponent("luckitem")
             inst.components.luckitem:SetLuck(GetStPatrickLuck)
             inst:AddTag("lucky")
         end
-
-        ------------------------------------------------------------------
-        -- KNIFE BABY LOOP START
-        ------------------------------------------------------------------
 
         if name == "baby_knife_gnome" or name == "baby_knife_darkness_gnome" then
             inst:DoTaskInTime(0, StartKnifeBabyLoop)
@@ -184,10 +173,6 @@ local function MakeGnome(name)
                 end
             end)
         end
-
-        ------------------------------------------------------------------
-        -- POOP GNOME FLIES
-        ------------------------------------------------------------------
 
         if name == "poop_gnome" then
 
@@ -219,8 +204,6 @@ local function MakeGnome(name)
             end)
         end
 
-        ------------------------------------------------------------------
-
         MakeHauntableLaunch(inst)
 
         return inst
@@ -228,8 +211,6 @@ local function MakeGnome(name)
 
     return Prefab(name, fn, assets, prefabs)
 end
-
---------------------------------------------------------------------------
 
 local prefab_list = {}
 

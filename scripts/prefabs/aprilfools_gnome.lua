@@ -7,11 +7,7 @@ local assets =
     Asset("ATLAS_BUILD", "images/GPLG_inventoryimages.xml", 256),
 }
 
-local prefabs =
-{
-}
-
---------------------------------------------------------------------------
+local prefabs = {}
 
 local function CancelAllTasks(inst)
     if inst._looptask ~= nil then
@@ -20,27 +16,19 @@ local function CancelAllTasks(inst)
     end
 end
 
---------------------------------------------------------------------------
-
 local function PlayIdle(inst)
     inst.AnimState:PlayAnimation("idle", true)
 end
-
---------------------------------------------------------------------------
 
 local function DoGiggle(inst)
     inst.AnimState:PlayAnimation("giggle")
     inst.AnimState:PushAnimation("idle", true)
 end
 
---------------------------------------------------------------------------
-
 local function DoMoustacheSpin(inst)
     inst.AnimState:PlayAnimation("moustache_spin_loop")
     inst.AnimState:PushAnimation("idle", true)
 end
-
---------------------------------------------------------------------------
 
 local function DoMoustacheGrow(inst)
     inst.AnimState:PlayAnimation("moustache_grow_big")
@@ -53,8 +41,6 @@ local function DoMoustacheGrow(inst)
         end
     end)
 end
-
---------------------------------------------------------------------------
 
 local function DoTongue(inst)
     inst.AnimState:PlayAnimation("tongue_grow_long")
@@ -74,8 +60,6 @@ local function DoTongue(inst)
         end
     end)
 end
-
---------------------------------------------------------------------------
 
 local function PickBehavior(inst)
     if not inst:IsValid() then return end
@@ -99,8 +83,6 @@ local function PickBehavior(inst)
     end
 end
 
---------------------------------------------------------------------------
-
 local function StartLoop(inst)
 
     CancelAllTasks(inst)
@@ -116,14 +98,13 @@ local function StartLoop(inst)
     Loop()
 end
 
---------------------------------------------------------------------------
-
 local function fn()
 
     local inst = CreateEntity()
 
     inst.entity:AddTransform()
     inst.entity:AddAnimState()
+    inst.entity:AddFollower()
     inst.entity:AddNetwork()
 
     MakeInventoryPhysics(inst)
@@ -135,16 +116,17 @@ local function fn()
     inst:AddTag("trinket")
     inst:AddTag("gnome")
     inst:AddTag("gnomes")
+    inst:AddTag("molebait")          -- Sorry!
+    inst:AddTag("cattoy")            -- Sorry!
+    inst:AddTag("furnituredecor")    -- You're welcome!
 
     inst.entity:SetPristine()
-
-    ----------------------------------------------------------------------
 
     if not TheWorld.ismastersim then
         return inst
     end
 
-    ----------------------------------------------------------------------
+    inst:AddComponent("furnituredecor")
 
     inst:AddComponent("inspectable")
 
@@ -152,11 +134,11 @@ local function fn()
     inst.components.inventoryitem.atlasname = "images/GPLG_inventoryimages.xml"
 
     inst:AddComponent("tradable")
+    inst.components.tradable.goldvalue   = TUNING.GOLD_VALUES.TRINKETS[4] or 3
+    inst.components.tradable.rocktribute = math.ceil(inst.components.tradable.goldvalue / 3)
 
     inst:AddComponent("stackable")
     inst.components.stackable.maxsize = TUNING.STACK_SIZE_SMALLITEM
-
-    ----------------------------------------------------------------------
 
     inst:DoTaskInTime(0, StartLoop)
 
@@ -164,13 +146,9 @@ local function fn()
         CancelAllTasks(inst)
     end)
 
-    ----------------------------------------------------------------------
-
     MakeHauntableLaunch(inst)
 
     return inst
 end
-
---------------------------------------------------------------------------
 
 return Prefab("aprilfools_gnome", fn, assets, prefabs)
