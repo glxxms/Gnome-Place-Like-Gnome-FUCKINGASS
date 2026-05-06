@@ -1,10 +1,10 @@
 local ALL_GNOMES = require("GPLG_data")
-local fns = ALL_GNOMES.fns
+local fns        = ALL_GNOMES.fns
 
 local function MakeGnome(name, data)
 	local assets = {}
 	
-	local bank = data.bank or "trinkets_gnomes"
+	local bank  = data.bank or "trinkets_gnomes"
 	local build = data.build or bank
 	
 	table.insert(assets, Asset("ANIM", "anim/"..bank..".zip"))
@@ -48,7 +48,7 @@ local function MakeGnome(name, data)
 		
 		inst:AddTag("gnome")
 		inst:AddTag("molebait") -- Sorry!
-		inst:AddTag("cattoy") -- Sorry!
+		inst:AddTag("cattoy")   -- Sorry!
 		inst:AddTag("furnituredecor") -- You're welcome!
 		inst:AddTag("trinket")
 		
@@ -58,13 +58,17 @@ local function MakeGnome(name, data)
 			end
 		end
 		
+		if data.client_fn then
+			data.client_fn(inst)
+		end
+		
 		inst.entity:SetPristine()
 		
 		if not TheWorld.ismastersim then
 			return inst
 		end
 		
-		inst._gnome_anim = data.anim or name
+		inst._gnome_anim    = data.anim or name
 		inst._gnome_anim_cd = data.animloop_cd
 		
 		inst:AddComponent("furnituredecor")
@@ -72,6 +76,9 @@ local function MakeGnome(name, data)
 		inst:AddComponent("inspectable")
 		
 		inst:AddComponent("inventoryitem")
+		if data.sinks then
+			inst.components.inventoryitem:SetSinks(true)
+		end
 		
 		inst:AddComponent("stackable")
 		inst.components.stackable.maxsize = TUNING.STACK_SIZE_SMALLITEM
@@ -87,6 +94,10 @@ local function MakeGnome(name, data)
 		
 		if data.animloop_cd then
 			inst._animtask = inst:DoTaskInTime(GetRandomMinMax(data.animloop_cd[1], data.animloop_cd[2]), RepeatAnim)
+		end
+		
+		if data.master_fn then
+			data.master_fn(inst)
 		end
 		
 		MakeHauntableLaunch(inst)

@@ -31,14 +31,16 @@
 		<Element name="jimbo_gnome.tex" u1="0.126" u2="0.249" v2="0.427571428571429" v1="0.286714285714286" variant="" />
 		<Element name="mod_cherryforest_gnomette.tex" u1="0.251" u2="0.374" v2="0.427571428571429" v1="0.286714285714286" variant="" />
 		<Element name="pirate_gnome.tex" u1="0.376" u2="0.499" v2="0.427571428571429" v1="0.286714285714286" variant="" />
-		<Element name="poop_gnome.tex" u1="0.001" u2="0.124" v2="0.284714285714286" v1="0.143857142857143" variant="" />
-		<Element name="potted_gnome.tex" u1="0.126" u2="0.249" v2="0.284714285714286" v1="0.143857142857143" variant="" />
-		<Element name="raincoat_gnomette.tex" u1="0.251" u2="0.374" v2="0.284714285714286" v1="0.143857142857143" variant="" />
-		<Element name="snurtle_gnome.tex" u1="0.376" u2="0.499" v2="0.284714285714286" v1="0.143857142857143" variant="" />
-		<Element name="stpatrick_gnome.tex" u1="0.001" u2="0.124" v2="0.141857142857143" v1="0.001" variant="" />
-		<Element name="stpatrick_gnomette.tex" u1="0.126" u2="0.249" v2="0.141857142857143" v1="0.001" variant="" />
-		<Element name="toadstool_gnome1.tex" u1="0.251" u2="0.374" v2="0.141857142857143" v1="0.001" variant="" />
-		<Element name="toadstool_gnome2.tex" u1="0.376" u2="0.499" v2="0.141857142857143" v1="0.001" variant="" />
-		<Element name="upsidedown_gnome.tex" u1="0.501" u2="0.624" v2="0.141857142857143" v1="0.001" variant="" />
+		<Element name="plumber_brother_gnome1.tex" u1="0.001" u2="0.124" v2="0.284714285714286" v1="0.143857142857143" variant="" />
+		<Element name="plumber_brother_gnome2.tex" u1="0.126" u2="0.249" v2="0.284714285714286" v1="0.143857142857143" variant="" />
+		<Element name="poop_gnome.tex" u1="0.251" u2="0.374" v2="0.284714285714286" v1="0.143857142857143" variant="" />
+		<Element name="potted_gnome.tex" u1="0.376" u2="0.499" v2="0.284714285714286" v1="0.143857142857143" variant="" />
+		<Element name="raincoat_gnomette.tex" u1="0.001" u2="0.124" v2="0.141857142857143" v1="0.001" variant="" />
+		<Element name="snurtle_gnome.tex" u1="0.126" u2="0.249" v2="0.141857142857143" v1="0.001" variant="" />
+		<Element name="stpatrick_gnome.tex" u1="0.251" u2="0.374" v2="0.141857142857143" v1="0.001" variant="" />
+		<Element name="stpatrick_gnomette.tex" u1="0.376" u2="0.499" v2="0.141857142857143" v1="0.001" variant="" />
+		<Element name="toadstool_gnome1.tex" u1="0.501" u2="0.624" v2="0.141857142857143" v1="0.001" variant="" />
+		<Element name="toadstool_gnome2.tex" u1="0.626" u2="0.749" v2="0.141857142857143" v1="0.001" variant="" />
+		<Element name="upsidedown_gnome.tex" u1="0.751" u2="0.874" v2="0.141857142857143" v1="0.001" variant="" />
 	</Elements>
 </Atlas>

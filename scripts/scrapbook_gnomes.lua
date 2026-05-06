@@ -34,6 +34,7 @@ local scrapbookdata = {
 	stpatrick_gnome 	= {deps = {"potato_oversized"}},
 	stpatrick_gnomette 	= {deps = {"potato_oversized"}},
 	
+	-- 04/01/26 Gnomes
 	baby_gnome 			= {deps = {"canary"}},
 	baby_devil_gnome 	= {deps = {"krampus"}},
 	baby_angel_gnome 	= {deps = {"canary"}},
@@ -52,6 +53,10 @@ local scrapbookdata = {
 	raincoat_gnomette 			= {deps = {"rainometer"}},
 	mod_cherryforest_gnomette 	= {deps = {"critterlab"}},
 	aprilfools_gnome 			= {deps = {"hedgehound"}, bank = "aprilfools_gnome", build = "aprilfools_gnome", anim = "idle"},
+
+	-- 05/??/2026 Gnomes
+	plumber_brother_gnome1      = {deps = {"wormhole"}},
+	plumber_brother_gnome2      = {deps = {"ghost"}},
 }
 
 -- Command to unlock everything in the scrapbook: TheScrapbookPartitions:DebugUnlockEverything()
@@ -63,17 +68,17 @@ local scrapbookdata = {
 -- i.e cool_gnome = {stacksize = 10, bank = "coolbank", build = "coolbuild", anim = "coolanim"} etc.
 
 for k, v in pairs(scrapbookdata) do
-	v.name = v.name or k
+	v.name   = v.name or k
 	v.prefab = k
-	v.tex = k..".tex"
+	v.tex    = k..".tex"
 	
-	v.type = v.type or "item"
+	v.type   = v.type   or "item"
 	v.subcat = v.subcat or "trinket"
 	v.stacksize = v.stacksize or 40
 	
-	v.bank = v.bank or "trinkets_gnomes"
-	v.build = v.build or "trinkets_gnomes"
-	v.anim = v.anim or k
+	v.bank   = v.bank or "trinkets_gnomes"
+	v.build  = v.build or "trinkets_gnomes"
+	v.anim   = v.anim or k
 end
 
 return scrapbookdata

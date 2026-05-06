@@ -1,7 +1,7 @@
 local fns = {}
 
 local gnome_data = {
-	["aprilfools_gnome"] = 			{default = 1, master_fn = fns.StartTomfooleries, animloop_cd = {8, 24}, anim = "idle", bank = "aprilfools_gnome", build = "aprilfools_gnome"},
+	["aprilfools_gnome"] = 			{default = 1, anim = "idle", bank = "aprilfools_gnome", build = "aprilfools_gnome"},
 	["baby_angel_gnome"] = 			{default = 30},
 	["baby_devil_gnome"] = 			{default = 1},
 	["baby_gnome"] = 				{default = 1},
@@ -38,6 +38,8 @@ local gnome_data = {
 	["toadstool_gnome1"] = 			{default = 50},
 	["toadstool_gnome2"] = 			{default = 100},
 	["upsidedown_gnome"] = 			{default = 1},
+	["plumber_brother_gnome1"] = 	{default = 1},
+	["plumber_brother_gnome2"] = 	{default = 1},
 }
 
 --	Poop Gnome
@@ -55,14 +57,14 @@ end
 
 fns.SpawnFlies = function(inst)
 	inst._flies = SpawnPrefab("flies")
+	inst._flies.entity:SetParent(inst.entity)
+	inst._flies.Transform:SetPosition(math.random() * 0.3 - 0.15, 0.5, math.random() * 0.3 - 0.15)
 	
-	if inst._flies then
-		inst._flies.entity:SetParent(inst.entity)
-		inst._flies.Transform:SetPosition(math.random() * 0.3 - 0.15, 0.5, math.random() * 0.3 - 0.15)
-		
-		inst._fliestask = inst:DoPeriodicTask(1, fns.UpdateFlies, 0)
-	end
+	inst._fliestask = inst:DoPeriodicTask(1, fns.UpdateFlies, 0)
 end
+
+
+gnome_data["poop_gnome"].master_fn = fns.SpawnFlies
 
 --	St. Patrick's Gnomes
 
@@ -86,34 +88,37 @@ end
 --	April Fools Gnome
 
 local TOMFOOLERIES = {
-	idle = 50,
-	--giggle = 5,
-	--moustachespin = 5,
-	--moustachegrow = 5,
-	tongue = 50,
+	idle = 20,
+	giggle = 5,
+	moustachespin = 5,
+	moustachegrow = 5,
+	tongue = 5,
 }
 
 fns.DoTomfooleries = function(inst, force_tomfoolery, prev_tomfoolery)
 	local tomfoolery = force_tomfoolery or weighted_random_choice(TOMFOOLERIES)
-	local cd = inst._gnome_anim_cd or {8, 24}
-	print("DoTomfooleries?", tomfoolery, prev_tomfoolery)
+	local cd = {8, 24}
 	
 	--	Shrink stache
-	if inst.AnimState:IsCurrentAnimation("moustache_big_idle") then
+	if prev_tomfoolery == "moustachegrow" then
 		inst.AnimState:PlayAnimation("moustache_grow_normal")
 		inst.AnimState:PushAnimation(inst._gnome_anim, false)
+		tomfoolery = "moustacheshrink"
 	--	Stop wiggle
-	elseif inst.AnimState:IsCurrentAnimation("tongue_idle") and prev_tomfoolery == "tongue_wiggle" then
+	elseif prev_tomfoolery == "tonguewiggle" then
 		inst.AnimState:PlayAnimation("tongue_grow_normal")
 		inst.AnimState:PushAnimation(inst._gnome_anim, false)
 	--	Keep wiggle
-	elseif inst.AnimState:IsCurrentAnimation("tongue_idle") and prev_tomfoolery ~= "tongue_wiggle" then
+	elseif prev_tomfoolery == "tongue" then
 		inst.AnimState:PlayAnimation("tongue_wiggle")
 		inst.AnimState:PushAnimation("tongue_idle", false)
+		tomfoolery = "tonguewiggle"
+		cd = {4, 8}
 	--	Do wiggle
 	elseif tomfoolery == "tongue" then
 		inst.AnimState:PlayAnimation("tongue_grow_long")
 		inst.AnimState:PushAnimation("tongue_idle", false)
+		cd = {4, 8}
 	--	Do giggle
 	elseif tomfoolery == "giggle" then
 		inst.AnimState:PlayAnimation("giggle")
@@ -139,6 +144,8 @@ fns.StartTomfooleries = function(inst)
 		inst._tomfooleries = inst:DoTaskInTime(1, fns.DoTomfooleries)
 	end
 end
+
+gnome_data["aprilfools_gnome"].master_fn = fns.StartTomfooleries
 
 --
 
