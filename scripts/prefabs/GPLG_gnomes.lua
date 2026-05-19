@@ -1,11 +1,11 @@
 local ALL_GNOMES = require("GPLG_data")
-local fns        = ALL_GNOMES.fns
+local fns        = ALL_GNOMES.fns or {}
 
 local function MakeGnome(name, data)
 	local assets = {}
 	
-	local bank  = data.bank or "trinkets_gnomes"
-	local build = data.build or bank
+	local bank   = data.bank or "trinkets_gnomes"
+	local build  = data.build or bank
 	
 	table.insert(assets, Asset("ANIM", "anim/"..bank..".zip"))
 	if bank ~= build then

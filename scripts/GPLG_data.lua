@@ -153,6 +153,6 @@ for k, v in pairs(gnome_data) do
 	v.prefab = v.prefab or k
 end
 
-gnome_data.functions = fns
+gnome_data.fns = fns
 
 return gnome_data
